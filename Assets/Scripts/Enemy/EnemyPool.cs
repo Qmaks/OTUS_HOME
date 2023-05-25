@@ -1,16 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace ShootEmUp
 {
     public sealed class EnemyPool : MonoBehaviour
     {
         [Header("Spawn")]
-        [SerializeField]
-        private EnemyPositions enemyPositions;
-
-        [SerializeField]
-        private GameObject character;
+        [Inject] private EnemyPositions enemyPositions;
+        [Inject] private CharacterView characterView;
 
         [SerializeField]
         private Transform worldTransform;
@@ -47,8 +45,8 @@ namespace ShootEmUp
             
             var attackPosition = this.enemyPositions.RandomAttackPosition();
             enemy.GetComponent<EnemyMoveAgent>().SetDestination(attackPosition.position);
-
-            enemy.GetComponent<EnemyAttackAgent>().SetTarget(this.character);
+            enemy.GetComponent<EnemyAttackAgent>().SetTarget(characterView.gameObject);
+            
             return enemy;
         }
 

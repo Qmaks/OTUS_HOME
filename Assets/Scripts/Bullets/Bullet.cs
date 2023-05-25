@@ -1,44 +1,54 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 namespace ShootEmUp
 {
     public sealed class Bullet : MonoBehaviour
     {
-        public event Action<Bullet, Collision2D> OnCollisionEntered;
+        [NonSerialized] public bool IsPlayer;
+        [NonSerialized] public int Damage;
+        public BulletCollisionHandler collisionHandler;
 
-        [NonSerialized] public bool isPlayer;
-        [NonSerialized] public int damage;
-
-        [SerializeField]
-        private new Rigidbody2D rigidbody2D;
-
-        [SerializeField]
-        private SpriteRenderer spriteRenderer;
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            this.OnCollisionEntered?.Invoke(this, collision);
-        }
-
+        [SerializeField] private new Rigidbody2D rigidbody2D;
+        [SerializeField] private SpriteRenderer spriteRenderer;
+        
+        
         public void SetVelocity(Vector2 velocity)
         {
-            this.rigidbody2D.velocity = velocity;
+            rigidbody2D.velocity = velocity;
         }
 
         public void SetPhysicsLayer(int physicsLayer)
         {
-            this.gameObject.layer = physicsLayer;
+            gameObject.layer = physicsLayer;
         }
 
         public void SetPosition(Vector3 position)
         {
-            this.transform.position = position;
+            transform.position = position;
         }
 
         public void SetColor(Color color)
         {
-            this.spriteRenderer.color = color;
+            spriteRenderer.color = color;
         }
+        
+        public class Pool : MemoryPool<BulletSystem.Args,Bullet>
+        {
+            protected override void Reinitialize(BulletSystem.Args args, Bullet bullet)
+            {
+                bullet.SetPosition(args.Position);
+                bullet.SetColor(args.Color);
+                bullet.SetPhysicsLayer(args.PhysicsLayer);
+                bullet.Damage = args.Damage;
+                bullet.IsPlayer = args.IsPlayer;
+                bullet.SetVelocity(args.Velocity);
+            }
+        }
+       
     }
+    
+  
+    
 }

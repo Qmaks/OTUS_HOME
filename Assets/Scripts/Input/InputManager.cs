@@ -1,41 +1,32 @@
+using System;
 using UnityEngine;
 
 namespace ShootEmUp
 {
     public sealed class InputManager : MonoBehaviour
     {
-        public float HorizontalDirection { get; private set; }
-
-        [SerializeField]
-        private GameObject character;
-
-        [SerializeField]
-        private CharacterController characterController;
-
+        public event Action OnFireButton;
+        public event Action<float> OnHorizontalDirection;
+        
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                characterController._fireRequired = true;
+                OnFireButton?.Invoke();
             }
 
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                this.HorizontalDirection = -1;
+                OnHorizontalDirection?.Invoke(-1);
             }
             else if (Input.GetKey(KeyCode.RightArrow))
             {
-                this.HorizontalDirection = 1;
+                OnHorizontalDirection?.Invoke(1);
             }
             else
             {
-                this.HorizontalDirection = 0;
+                OnHorizontalDirection?.Invoke(0);
             }
-        }
-        
-        private void FixedUpdate()
-        {
-            this.character.GetComponent<MoveComponent>().MoveByRigidbodyVelocity(new Vector2(this.HorizontalDirection, 0) * Time.fixedDeltaTime);
         }
     }
 }

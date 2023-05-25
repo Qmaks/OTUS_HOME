@@ -13,7 +13,6 @@ namespace ShootEmUp
         [SerializeField] private new Rigidbody2D rigidbody2D;
         [SerializeField] private SpriteRenderer spriteRenderer;
         
-        
         public void SetVelocity(Vector2 velocity)
         {
             rigidbody2D.velocity = velocity;
@@ -48,7 +47,4 @@ namespace ShootEmUp
         }
        
     }
-    
-  
-    
 }

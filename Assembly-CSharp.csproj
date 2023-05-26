@@ -41,9 +41,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyManager.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletCollisionHandler.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletSystem.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyMoveAgent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyPositions.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletConfig.cs" />
@@ -59,10 +57,18 @@
      <Compile Include="Assets\Homework 2\Scripts\Input\InputManager.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyAttackAgent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Level\LevelBackground.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Character\CharacterController.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Common\PhysicsLayer.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\TeamComponent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletUtils.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemySpawnSystem.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyShootSystem.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletSpawnSystem.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletCollisionSystem.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletRemoveSystem.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Character\CharacterFireSystem.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Character\CharacterMoveSystem.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Character\CharacterDeathSystem.cs" />
+     <None Include="Assets\Resources\BillingMode.json" />
      <None Include="Assets\Homework 2\Resources\BillingMode.json" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.7f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

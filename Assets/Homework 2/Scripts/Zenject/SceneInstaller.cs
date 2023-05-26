@@ -10,21 +10,25 @@ public class SceneInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-      
+        BindCommonSystems();
+        BindCharacterSystems();
+        BindEnemySystems();
+        BindBulletSystems();
+    }
+
+    private void BindCommonSystems()
+    {
         Container.Bind<InputManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<GameManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<LevelBounds>().FromComponentInHierarchy().AsSingle();
-        
+    }
+
+    private void BindCharacterSystems()
+    {
         Container.Bind<CharacterView>().FromComponentInHierarchy().AsSingle();
-        
-        BindEnemySystems();
-        BindBulletSystems();
-
-
-        Container.BindMemoryPool<Bullet, Bullet.Pool>()
-            .FromComponentInNewPrefab(bullet)
-            .UnderTransform(bulletTransform)
-            .AsSingle();
+        Container.Bind<CharacterFireSystem>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<CharacterMoveSystem>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<CharacterDeathSystem>().FromComponentInHierarchy().AsSingle();
     }
 
     private void BindEnemySystems()
@@ -41,5 +45,10 @@ public class SceneInstaller : MonoInstaller
         Container.Bind<BulletRemoveSystem>().FromComponentInHierarchy().AsSingle();
         Container.Bind<BulletCollisionSystem>().FromComponentInHierarchy().AsSingle();
         Container.Bind<BulletConfig>().FromScriptableObjectResource("Configs/PlayerBullet").AsSingle();
+
+        Container.BindMemoryPool<Bullet, Bullet.Pool>()
+            .FromComponentInNewPrefab(bullet)
+            .UnderTransform(bulletTransform)
+            .AsSingle();
     }
 }

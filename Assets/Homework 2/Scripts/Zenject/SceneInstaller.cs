@@ -19,10 +19,10 @@ public class SceneInstaller : MonoInstaller
 
     private void BindCommonSystems()
     {
+        Container.Bind<GameManager>().FromNew().AsSingle().NonLazy();
         Container.BindInterfacesAndSelfTo<InputManager>().FromNew().AsSingle().NonLazy();
         Container.BindInterfacesAndSelfTo<LevelBackground>().FromComponentInHierarchy().AsSingle();
         Container.Bind<CoroutineRunner>().FromComponentsInHierarchy().AsSingle();
-        Container.Bind<GameManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<LevelBounds>().FromComponentInHierarchy().AsSingle();
     }
 

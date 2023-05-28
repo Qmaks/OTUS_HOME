@@ -12,23 +12,23 @@ namespace ShootEmUp
 
         [SerializeField] private new Rigidbody2D rigidbody2D;
         [SerializeField] private SpriteRenderer spriteRenderer;
-        
-        public void SetVelocity(Vector2 velocity)
+
+        private void SetVelocity(Vector2 velocity)
         {
             rigidbody2D.velocity = velocity;
         }
 
-        public void SetPhysicsLayer(int physicsLayer)
+        private void SetPhysicsLayer(int physicsLayer)
         {
             gameObject.layer = physicsLayer;
         }
 
-        public void SetPosition(Vector3 position)
+        private void SetPosition(Vector3 position)
         {
             transform.position = position;
         }
 
-        public void SetColor(Color color)
+        private void SetColor(Color color)
         {
             spriteRenderer.color = color;
         }

@@ -4,12 +4,15 @@ using Zenject;
 
 public class SceneInstaller : MonoInstaller
 {
+    [Header("Prefabs")]
     [SerializeField] private GameObject character;
-    [SerializeField] private Transform  characterSpawnTransform;
-    [SerializeField] private Transform bulletTransform;
-    [SerializeField] private Transform enemyTransform;
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject enemy;
+
+    [Header("Parents")]
+    [SerializeField] private Transform characterTransform;
+    [SerializeField] private Transform bulletTransform;
+    [SerializeField] private Transform enemyTransform;
 
     public override void InstallBindings()
     {
@@ -32,7 +35,7 @@ public class SceneInstaller : MonoInstaller
     {
         Container.Bind<CharacterView>()
             .FromComponentInNewPrefab(character)
-            .UnderTransform(characterSpawnTransform)
+            .UnderTransform(characterTransform)
             .AsSingle();
         
         Container.BindInterfacesAndSelfTo<CharacterMoveSystem>().FromNew().AsSingle().NonLazy();

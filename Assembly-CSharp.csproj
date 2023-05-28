@@ -41,35 +41,35 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletCollisionHandler.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyMoveAgent.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyPositions.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletConfig.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Level\LevelBounds.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Zenject\SceneInstaller.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\GameManager\GameManager.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Common\CoroutineRunner.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\WeaponComponent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Character\CharacterView.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Character\CharacterDeathSystem.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Character\CharacterMoveSystem.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletCollisionHandler.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyView.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\MoveComponent.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletRemoveSystem.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\Bullet.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyMoveAgent.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyPositions.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Character\CharacterFireSystem.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\HitPointsComponent.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Zenject\EnemyInstaller.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemySpawnSystem.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Input\InputManager.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyAttackAgent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Level\LevelBackground.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Common\PhysicsLayer.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\TeamComponent.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletUtils.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemySpawnSystem.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyShootSystem.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Common\PhysicsLayer.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletConfig.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Level\LevelBounds.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletSpawnSystem.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletUtils.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyShootSystem.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Zenject\SceneInstaller.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletCollisionSystem.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletRemoveSystem.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Character\CharacterFireSystem.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Character\CharacterMoveSystem.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Character\CharacterDeathSystem.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Zenject\EnemyInstaller.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyView.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Common\CoroutineRunner.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\GameManager\GameManager.cs" />
      <None Include="Assets\Resources\BillingMode.json" />
      <None Include="Assets\Homework 2\Resources\BillingMode.json" />
      <Reference Include="UnityEngine">
@@ -318,12 +318,6 @@
      <Reference Include="Zenject-usage">
      <HintPath>C:\Users\ASUS\Documents\Unity\Otus homework\Otus Homework 2\Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
      </Reference>
-     <Reference Include="Newtonsoft.Json">
-     <HintPath>C:\Users\ASUS\Documents\Unity\Otus homework\Otus Homework 2\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
-     </Reference>
-     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
-     <HintPath>C:\Users\ASUS\Documents\Unity\Otus homework\Otus Homework 2\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
-     </Reference>
      <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
      <HintPath>C:\Users\ASUS\Documents\Unity\Otus homework\Otus Homework 2\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
      </Reference>
@@ -332,6 +326,12 @@
      </Reference>
      <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
      <HintPath>C:\Users\ASUS\Documents\Unity\Otus homework\Otus Homework 2\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+     </Reference>
+     <Reference Include="Newtonsoft.Json">
+     <HintPath>C:\Users\ASUS\Documents\Unity\Otus homework\Otus Homework 2\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+     </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
+     <HintPath>C:\Users\ASUS\Documents\Unity\Otus homework\Otus Homework 2\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.7f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -729,11 +729,11 @@
      <Reference Include="Unity.Rider.Editor">
      <HintPath>C:\Users\ASUS\Documents\Unity\Otus homework\Otus Homework 2\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Services.Core">
-     <HintPath>C:\Users\ASUS\Documents\Unity\Otus homework\Otus Homework 2\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEngine.UI">
      <HintPath>C:\Users\ASUS\Documents\Unity\Otus homework\Otus Homework 2\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Core">
+     <HintPath>C:\Users\ASUS\Documents\Unity\Otus homework\Otus Homework 2\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core.Analytics">
      <HintPath>C:\Users\ASUS\Documents\Unity\Otus homework\Otus Homework 2\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>

@@ -4,7 +4,7 @@ using Zenject;
 
 namespace ShootEmUp
 {
-    public class BulletRemoveSystem : IInitializable , IFixedTickable
+    public class BulletRemoveSystem : IInitializable , IDisposable, IFixedTickable
     {
         public event Action<Bullet> OnBulletRemoved;
         
@@ -21,6 +21,12 @@ namespace ShootEmUp
             bulletCollisionSystem.OnBulletCollision += OnBulletCollision;
         }
 
+        public void Dispose()
+        {
+            bulletSpawnSystem.OnBulletSpawned -= OnNewBulletSpawn;
+            bulletCollisionSystem.OnBulletCollision -= OnBulletCollision;
+        }
+
         private void OnBulletCollision(Bullet bullet)
         {
             RemoveBullet(bullet);
@@ -30,7 +36,7 @@ namespace ShootEmUp
         {
             activeBullets.Add(bullet);
         }
-        
+
         private void RemoveBullet(Bullet bullet)
         {
             OnBulletRemoved?.Invoke(bullet);

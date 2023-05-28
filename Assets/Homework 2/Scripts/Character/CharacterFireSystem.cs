@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Zenject;
 
 namespace ShootEmUp
 {
-    public class CharacterFireSystem : IInitializable
+    public class CharacterFireSystem : IInitializable , IDisposable
     {
         [Inject] private CharacterView characterView;
         [Inject] private BulletConfig bulletConfig;
@@ -13,6 +14,11 @@ namespace ShootEmUp
         public void Initialize()
         {
             inputManager.OnFireButton += BulletShoot; 
+        }
+
+        public void Dispose()
+        {
+            inputManager.OnFireButton -= BulletShoot; 
         }
 
         private void BulletShoot()

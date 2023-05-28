@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Zenject;
 
 namespace ShootEmUp
 {
-    public class EnemyShootSystem : IInitializable
+    public class EnemyShootSystem : IInitializable , IDisposable
     {
         [Inject] private EnemySpawnSystem enemySpawnSystem;
         [Inject] private BulletSpawnSystem bulletSpawnSystem;
@@ -12,7 +13,12 @@ namespace ShootEmUp
         {
             enemySpawnSystem.OnEnemySpawned += OnNewEnemySpawned;
         }
-        
+
+        public void Dispose()
+        {
+            enemySpawnSystem.OnEnemySpawned -= OnNewEnemySpawned;
+        }
+
         private void OnNewEnemySpawned(GameObject enemy)
         {
             enemy.GetComponent<HitPointsComponent>().HpEmpty += OnDestroyed;

@@ -6,7 +6,7 @@ using Zenject;
 
 namespace ShootEmUp
 {
-    public class EnemySpawnSystem : IInitializable
+    public class EnemySpawnSystem : IInitializable , IDisposable
     {
         public event Action<GameObject> OnEnemySpawned;
 
@@ -20,6 +20,11 @@ namespace ShootEmUp
         public void Initialize()
         {
             coroutineRunner.StartCoroutine(StartSpawn());
+        }
+
+        public void Dispose()
+        {
+            coroutineRunner.StopCoroutine(StartSpawn());
         }
 
         private IEnumerator StartSpawn()
@@ -54,7 +59,7 @@ namespace ShootEmUp
                 enemyPool.Despawn(enemy.GetComponent<EnemyView>());
             }
         }
-        
+
         public struct Args
         {
             public Transform Position;

@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Zenject;
 
 namespace ShootEmUp
 {
-    public class CharacterMoveSystem : IInitializable
+    public class CharacterMoveSystem : IInitializable, IDisposable
     {
         [Inject] private CharacterView characterView;
         [Inject] private InputManager inputManager;
@@ -11,6 +12,11 @@ namespace ShootEmUp
         public void Initialize()
         {
             inputManager.OnHorizontalDirection += InputManagerOnOnHorizontalDirection;
+        }
+
+        public void Dispose()
+        {
+            inputManager.OnHorizontalDirection -= InputManagerOnOnHorizontalDirection;
         }
 
         private void InputManagerOnOnHorizontalDirection(float horizontal)

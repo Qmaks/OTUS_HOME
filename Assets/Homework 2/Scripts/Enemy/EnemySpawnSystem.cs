@@ -6,15 +6,21 @@ using Zenject;
 
 namespace ShootEmUp
 {
-    public class EnemySpawnSystem : MonoBehaviour
+    public class EnemySpawnSystem : IInitializable
     {
         public event Action<GameObject> OnEnemySpawned;
-        
+
         [Inject] private EnemyPool enemyPool;
-        
+        [Inject] private CoroutineRunner coroutineRunner;
+
         private readonly HashSet<GameObject> activeEnemies = new();
-        
-        private IEnumerator Start()
+
+        public void Initialize()
+        {
+            coroutineRunner.StartCoroutine(StartSpawn());
+        }
+
+        private IEnumerator StartSpawn()
         {
             while (true)
             {
@@ -26,7 +32,7 @@ namespace ShootEmUp
                     {
                         enemy.GetComponent<HitPointsComponent>().HpEmpty += OnDestroyed;
                         OnEnemySpawned?.Invoke(enemy);
-                    }    
+                    }
                 }
             }
         }

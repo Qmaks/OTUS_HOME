@@ -18,9 +18,6 @@ namespace ShootEmUp
         [SerializeField]
         private Transform container;
 
-        [SerializeField]
-        private GameObject prefab;
-
         private readonly Queue<GameObject> enemyPool = new();
         
         private void Awake()

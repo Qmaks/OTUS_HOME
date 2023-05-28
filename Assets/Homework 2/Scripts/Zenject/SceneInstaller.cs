@@ -21,6 +21,7 @@ public class SceneInstaller : MonoInstaller
     {
         Container.BindInterfacesAndSelfTo<InputManager>().FromNew().AsSingle().NonLazy();
         Container.BindInterfacesAndSelfTo<LevelBackground>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<CoroutineRunner>().FromComponentsInHierarchy().AsSingle();
         Container.Bind<GameManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<LevelBounds>().FromComponentInHierarchy().AsSingle();
     }
@@ -37,8 +38,8 @@ public class SceneInstaller : MonoInstaller
     {
         Container.Bind<EnemyPositions>().FromComponentInHierarchy().AsSingle();
         Container.Bind<EnemyPool>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<EnemySpawnSystem>().FromComponentInHierarchy().AsSingle();
         Container.BindInterfacesAndSelfTo<EnemyShootSystem>().FromNew().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<EnemySpawnSystem>().FromNew().AsSingle().NonLazy();
 
         Container.BindFactory<EnemyView, EnemyView.Factory>()
             .FromComponentInNewPrefab(enemy)

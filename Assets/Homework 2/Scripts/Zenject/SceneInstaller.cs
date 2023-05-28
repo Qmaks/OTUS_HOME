@@ -7,6 +7,7 @@ public class SceneInstaller : MonoInstaller
 {
     [SerializeField] private Transform bulletTransform;
     [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject enemy;
 
     public override void InstallBindings()
     {
@@ -18,7 +19,8 @@ public class SceneInstaller : MonoInstaller
 
     private void BindCommonSystems()
     {
-        Container.Bind<InputManager>().FromComponentInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<InputManager>().FromComponentInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<LevelBackground>().FromComponentInHierarchy().AsSingle();
         Container.Bind<GameManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<LevelBounds>().FromComponentInHierarchy().AsSingle();
     }
@@ -37,12 +39,15 @@ public class SceneInstaller : MonoInstaller
         Container.Bind<EnemyPool>().FromComponentInHierarchy().AsSingle();
         Container.Bind<EnemySpawnSystem>().FromComponentInHierarchy().AsSingle();
         Container.Bind<EnemyShootSystem>().FromComponentInHierarchy().AsSingle();
+        Container.BindFactory<EnemyView, EnemyView.Factory>()
+            .FromComponentInNewPrefab(enemy)
+            .AsSingle();
     }
 
     private void BindBulletSystems()
     {
         Container.Bind<BulletSpawnSystem>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<BulletRemoveSystem>().FromComponentInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<BulletRemoveSystem>().FromComponentsInHierarchy().AsSingle();
         Container.Bind<BulletCollisionSystem>().FromComponentInHierarchy().AsSingle();
         Container.Bind<BulletConfig>().FromScriptableObjectResource("Configs/PlayerBullet").AsSingle();
 

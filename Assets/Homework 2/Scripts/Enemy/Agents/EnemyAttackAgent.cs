@@ -1,8 +1,9 @@
 using UnityEngine;
+using Zenject;
 
 namespace ShootEmUp
 {
-    public sealed class EnemyAttackAgent : MonoBehaviour
+    public sealed class EnemyAttackAgent : MonoBehaviour, IFixedTickable
     {
         public delegate void FireHandler(GameObject enemy, Vector2 position, Vector2 direction);
 
@@ -25,7 +26,7 @@ namespace ShootEmUp
             this.currentTime = this.countdown;
         }
 
-        private void FixedUpdate()
+        public void FixedTick()
         {
             if (!this.moveAgent.IsReached)
             {

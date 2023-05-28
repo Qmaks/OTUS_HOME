@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Zenject;
 
 namespace ShootEmUp
 {
-    public sealed class LevelBackground : MonoBehaviour
+    public sealed class LevelBackground : MonoBehaviour, IFixedTickable
     {
         private float startPositionY;
         private float endPositionY;
@@ -28,7 +29,7 @@ namespace ShootEmUp
             positionZ = position.z;
         }
 
-        private void FixedUpdate()
+        public void FixedTick()
         {
             if (this.myTransform.position.y <= this.endPositionY)
             {

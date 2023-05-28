@@ -68,6 +68,8 @@
      <Compile Include="Assets\Homework 2\Scripts\Character\CharacterFireSystem.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Character\CharacterMoveSystem.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Character\CharacterDeathSystem.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Zenject\EnemyInstaller.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyView.cs" />
      <None Include="Assets\Resources\BillingMode.json" />
      <None Include="Assets\Homework 2\Resources\BillingMode.json" />
      <Reference Include="UnityEngine">

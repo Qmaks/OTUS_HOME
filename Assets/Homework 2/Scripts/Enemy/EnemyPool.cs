@@ -9,6 +9,7 @@ namespace ShootEmUp
         [Header("Spawn")]
         [Inject] private EnemyPositions enemyPositions;
         [Inject] private CharacterView characterView;
+        [Inject] private EnemyView.Factory enemyFactory;
 
         [SerializeField]
         private Transform worldTransform;
@@ -26,7 +27,8 @@ namespace ShootEmUp
         {
             for (var i = 0; i < 7; i++)
             {
-                var enemy = Instantiate(this.prefab, this.container);
+                var enemy = enemyFactory.Create().gameObject;
+                enemy.transform.SetParent(container);
                 this.enemyPool.Enqueue(enemy);
             }
         }
@@ -38,12 +40,12 @@ namespace ShootEmUp
                 return null;
             }
 
-            enemy.transform.SetParent(this.worldTransform);
+            enemy.transform.SetParent(worldTransform);
 
-            var spawnPosition = this.enemyPositions.RandomSpawnPosition();
+            var spawnPosition = enemyPositions.RandomSpawnPosition();
             enemy.transform.position = spawnPosition.position;
             
-            var attackPosition = this.enemyPositions.RandomAttackPosition();
+            var attackPosition = enemyPositions.RandomAttackPosition();
             enemy.GetComponent<EnemyMoveAgent>().SetDestination(attackPosition.position);
             enemy.GetComponent<EnemyAttackAgent>().SetTarget(characterView.gameObject);
             
@@ -53,7 +55,7 @@ namespace ShootEmUp
         public void UnspawnEnemy(GameObject enemy)
         {
             enemy.transform.SetParent(this.container);
-            this.enemyPool.Enqueue(enemy);
+            enemyPool.Enqueue(enemy);
         }
     }
 }

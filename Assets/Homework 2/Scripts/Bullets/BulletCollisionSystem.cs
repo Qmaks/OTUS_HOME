@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Zenject;
 
 namespace ShootEmUp
 {
     public class BulletCollisionSystem : IInitializable
     {
+        public event Action<Bullet> OnBulletCollision;
+        
         [Inject] private BulletSpawnSystem bulletSpawnSystem;
 
         [Inject] private BulletRemoveSystem bulletRemoveSystem;
@@ -17,17 +20,18 @@ namespace ShootEmUp
         
         private void OnBulletSpawn(Bullet bullet)
         {
-            bullet.collisionHandler.OnCollisionEntered += OnBulletCollision;
+            bullet.collisionHandler.OnCollisionEntered += BulletCollisionHandler;
         }
 
         private void OnBulletRemove(Bullet bullet)
         {
-            bullet.collisionHandler.OnCollisionEntered -= OnBulletCollision;
+            bullet.collisionHandler.OnCollisionEntered -= BulletCollisionHandler;
         }
 
-        private void OnBulletCollision(Bullet bullet, Collision2D collision)
+        private void BulletCollisionHandler(Bullet bullet, Collision2D collision)
         {
             BulletUtils.DealDamage(bullet, collision.gameObject);
+            OnBulletCollision?.Invoke(bullet);
         }
     }
 }

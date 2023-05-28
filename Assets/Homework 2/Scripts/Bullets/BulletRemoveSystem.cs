@@ -11,6 +11,7 @@ namespace ShootEmUp
         
         [Inject] private LevelBounds levelBounds;
         [Inject] private BulletSpawnSystem bulletSpawnSystem;
+        [Inject] private BulletCollisionSystem bulletCollisionSystem;
         
         private readonly List<Bullet> cache = new();
         private readonly HashSet<Bullet> activeBullets = new();
@@ -18,8 +19,14 @@ namespace ShootEmUp
         public void Initialize()
         {
             bulletSpawnSystem.OnBulletSpawned += OnNewBulletSpawn;
+            bulletCollisionSystem.OnBulletCollision += OnBulletCollision;
         }
-        
+
+        private void OnBulletCollision(Bullet bullet)
+        {
+            RemoveBullet(bullet);
+        }
+
         private void OnNewBulletSpawn(Bullet bullet)
         {
             activeBullets.Add(bullet);
@@ -34,9 +41,9 @@ namespace ShootEmUp
         public void FixedTick()
         {
             cache.Clear();
-            cache.AddRange(this.activeBullets);
+            cache.AddRange(activeBullets);
 
-            for (int i = 0, count = this.cache.Count; i < count; i++)
+            for (int i = 0, count = cache.Count; i < count; i++)
             {
                 var bullet = this.cache[i];
                 if (!levelBounds.InBounds(bullet.transform.position))

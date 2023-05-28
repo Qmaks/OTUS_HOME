@@ -12,7 +12,7 @@ namespace ShootEmUp
         
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            this.OnCollisionEntered?.Invoke(bullet, collision);
+            OnCollisionEntered?.Invoke(bullet, collision);
         }
     }
 }

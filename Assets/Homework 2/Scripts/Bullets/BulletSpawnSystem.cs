@@ -18,6 +18,7 @@ namespace ShootEmUp
         
         private void OnBulletRemoved(Bullet bullet)
         {
+            Debug.Log("Remove Bullet");
             bulletPool.Despawn(bullet);
         }
 

@@ -33,7 +33,7 @@ namespace ShootEmUp
             spriteRenderer.color = color;
         }
         
-        public class Pool : MemoryPool<BulletSpawnSystem.Args,Bullet>
+        public class Pool : MonoMemoryPool<BulletSpawnSystem.Args,Bullet>
         {
             protected override void Reinitialize(BulletSpawnSystem.Args args, Bullet bullet)
             {

@@ -8,7 +8,7 @@ namespace ShootEmUp
         [SerializeField] private EnemyAttackAgent enemyAttackAgent;
         [SerializeField] private EnemyMoveAgent enemyMoveAgent;
         
-        public class Pool : MemoryPool<EnemySpawnSystem.Args,EnemyView>
+        public class Pool : MonoMemoryPool<EnemySpawnSystem.Args,EnemyView>
         {
             protected override void Reinitialize(EnemySpawnSystem.Args args, EnemyView enemy)
             {

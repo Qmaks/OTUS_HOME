@@ -4,6 +4,8 @@ using Zenject;
 
 public class SceneInstaller : MonoInstaller
 {
+    [SerializeField] private GameObject character;
+    [SerializeField] private Transform  characterSpawnTransform;
     [SerializeField] private Transform bulletTransform;
     [SerializeField] private Transform enemyTransform;
     [SerializeField] private GameObject bullet;
@@ -28,7 +30,11 @@ public class SceneInstaller : MonoInstaller
 
     private void BindCharacterSystems()
     {
-        Container.Bind<CharacterView>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<CharacterView>()
+            .FromComponentInNewPrefab(character)
+            .UnderTransform(characterSpawnTransform)
+            .AsSingle();
+        
         Container.BindInterfacesAndSelfTo<CharacterMoveSystem>().FromNew().AsSingle().NonLazy();
         Container.BindInterfacesAndSelfTo<CharacterFireSystem>().FromNew().AsSingle().NonLazy();
         Container.BindInterfacesAndSelfTo<CharacterDeathSystem>().FromNew().AsSingle().NonLazy();

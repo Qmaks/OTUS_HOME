@@ -8,8 +8,14 @@ namespace ShootEmUp
         [SerializeField] private EnemyAttackAgent enemyAttackAgent;
         [SerializeField] private EnemyMoveAgent enemyMoveAgent;
         
-        public class Factory : PlaceholderFactory<EnemyView>
+        public class Pool : MemoryPool<EnemySpawnSystem.Args,EnemyView>
         {
+            protected override void Reinitialize(EnemySpawnSystem.Args args, EnemyView enemy)
+            {
+                enemy.transform.position = args.Position.position;
+                enemy.enemyMoveAgent.SetDestination(args.AttackPosition.position);
+                enemy.enemyAttackAgent.SetTarget(args.AttackTarget);
+            }
         }
     }
 }

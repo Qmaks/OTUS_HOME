@@ -10,7 +10,9 @@ namespace ShootEmUp
     {
         public event Action<GameObject> OnEnemySpawned;
 
-        [Inject] private EnemyPool enemyPool;
+        [Inject] private EnemyView.Pool enemyPool;
+        [Inject] private EnemyPositions enemyPositions;
+        [Inject] private CharacterView characterView;
         [Inject] private CoroutineRunner coroutineRunner;
 
         private readonly HashSet<GameObject> activeEnemies = new();
@@ -25,7 +27,14 @@ namespace ShootEmUp
             while (true)
             {
                 yield return new WaitForSeconds(1);
-                var enemy = enemyPool.SpawnEnemy();
+
+                Args args;
+                args.Position = enemyPositions.RandomSpawnPosition();
+                args.AttackPosition = enemyPositions.RandomAttackPosition();
+                args.AttackTarget = characterView.gameObject;
+                
+                var enemy = enemyPool.Spawn(args).gameObject;
+                
                 if (enemy != null)
                 {
                     if (activeEnemies.Add(enemy))
@@ -42,8 +51,15 @@ namespace ShootEmUp
             if (activeEnemies.Remove(enemy))
             {
                 enemy.GetComponent<HitPointsComponent>().HpEmpty -= OnDestroyed;
-                enemyPool.UnspawnEnemy(enemy);
+                enemyPool.Despawn(enemy.GetComponent<EnemyView>());
             }
+        }
+        
+        public struct Args
+        {
+            public Transform Position;
+            public Transform AttackPosition;
+            public GameObject AttackTarget;
         }
     }
 }

@@ -53,7 +53,6 @@
      <Compile Include="Assets\Homework 2\Scripts\Components\MoveComponent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\Bullet.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\HitPointsComponent.cs" />
-     <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyPool.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Input\InputManager.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyAttackAgent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Level\LevelBackground.cs" />

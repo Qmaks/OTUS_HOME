@@ -1,11 +1,11 @@
 using ShootEmUp;
 using UnityEngine;
 using Zenject;
-using Bullet = ShootEmUp.Bullet;
 
 public class SceneInstaller : MonoInstaller
 {
     [SerializeField] private Transform bulletTransform;
+    [SerializeField] private Transform enemyTransform;
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject enemy;
 
@@ -37,13 +37,12 @@ public class SceneInstaller : MonoInstaller
     private void BindEnemySystems()
     {
         Container.Bind<EnemyPositions>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<EnemyPool>().FromComponentInHierarchy().AsSingle();
         Container.BindInterfacesAndSelfTo<EnemyShootSystem>().FromNew().AsSingle().NonLazy();
         Container.BindInterfacesAndSelfTo<EnemySpawnSystem>().FromNew().AsSingle().NonLazy();
 
-        Container.BindFactory<EnemyView, EnemyView.Factory>()
+        Container.BindMemoryPool<EnemyView, EnemyView.Pool>()
             .FromComponentInNewPrefab(enemy)
-            .AsSingle();
+            .UnderTransform(enemyTransform);
     }
 
     private void BindBulletSystems()
@@ -56,7 +55,6 @@ public class SceneInstaller : MonoInstaller
 
         Container.BindMemoryPool<Bullet, Bullet.Pool>()
             .FromComponentInNewPrefab(bullet)
-            .UnderTransform(bulletTransform)
-            .AsSingle();
+            .UnderTransform(bulletTransform);
     }
 }

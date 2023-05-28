@@ -3,19 +3,14 @@ using Zenject;
 
 namespace ShootEmUp
 {
-    public class CharacterMoveSystem : MonoBehaviour
+    public class CharacterMoveSystem : IInitializable
     {
         [Inject] private CharacterView characterView;
         [Inject] private InputManager inputManager;
-        
-        private void OnEnable()
+
+        public void Initialize()
         {
             inputManager.OnHorizontalDirection += InputManagerOnOnHorizontalDirection;
-        }
-
-        private void OnDisable()
-        {
-            inputManager.OnHorizontalDirection -= InputManagerOnOnHorizontalDirection;
         }
 
         private void InputManagerOnOnHorizontalDirection(float horizontal)

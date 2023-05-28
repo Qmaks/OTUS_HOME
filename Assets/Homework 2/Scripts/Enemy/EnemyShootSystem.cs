@@ -3,21 +3,16 @@ using Zenject;
 
 namespace ShootEmUp
 {
-    public class EnemyShootSystem : MonoBehaviour
+    public class EnemyShootSystem : IInitializable
     {
         [Inject] private EnemySpawnSystem enemySpawnSystem;
         [Inject] private BulletSpawnSystem bulletSpawnSystem;
-        
-        private void OnEnable()
+
+        public void Initialize()
         {
             enemySpawnSystem.OnEnemySpawned += OnNewEnemySpawned;
         }
         
-        private void OnDisable()
-        {
-            enemySpawnSystem.OnEnemySpawned -= OnNewEnemySpawned;
-        }
-
         private void OnNewEnemySpawned(GameObject enemy)
         {
             enemy.GetComponent<HitPointsComponent>().HpEmpty += OnDestroyed;

@@ -3,21 +3,16 @@ using Zenject;
 
 namespace ShootEmUp
 {
-    public class CharacterFireSystem : MonoBehaviour
+    public class CharacterFireSystem : IInitializable
     {
         [Inject] private CharacterView characterView;
         [Inject] private BulletConfig bulletConfig;
         [Inject] private BulletSpawnSystem bulletSpawnSystem;
         [Inject] private InputManager inputManager;
         
-        private void OnEnable()
+        public void Initialize()
         {
             inputManager.OnFireButton += BulletShoot; 
-        }
-
-        private void OnDisable()
-        {
-            inputManager.OnFireButton -= BulletShoot; 
         }
 
         private void BulletShoot()

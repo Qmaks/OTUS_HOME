@@ -5,7 +5,7 @@ using Zenject;
 
 namespace ShootEmUp
 {
-    public class BulletRemoveSystem : MonoBehaviour , IFixedTickable
+    public class BulletRemoveSystem : IInitializable , IFixedTickable
     {
         public event Action<Bullet> OnBulletRemoved;
         
@@ -15,35 +15,15 @@ namespace ShootEmUp
         private readonly List<Bullet> cache = new();
         private readonly HashSet<Bullet> activeBullets = new();
 
-        private void OnEnable()
+        public void Initialize()
         {
             bulletSpawnSystem.OnBulletSpawned += OnNewBulletSpawn;
         }
-
-        private void OnDisable()
-        {
-            bulletSpawnSystem.OnBulletSpawned -= OnNewBulletSpawn;
-        }
-
+        
         private void OnNewBulletSpawn(Bullet bullet)
         {
             activeBullets.Add(bullet);
         }
-        
-        // private void FixedUpdate()
-        // {
-        //     cache.Clear();
-        //     cache.AddRange(this.activeBullets);
-        //
-        //     for (int i = 0, count = this.cache.Count; i < count; i++)
-        //     {
-        //         var bullet = this.cache[i];
-        //         if (!levelBounds.InBounds(bullet.transform.position))
-        //         {
-        //             RemoveBullet(bullet);
-        //         }
-        //     }
-        // }
         
         private void RemoveBullet(Bullet bullet)
         {

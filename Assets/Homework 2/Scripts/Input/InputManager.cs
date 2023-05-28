@@ -4,7 +4,7 @@ using Zenject;
 
 namespace ShootEmUp
 {
-    public sealed class InputManager : MonoBehaviour, ITickable
+    public sealed class InputManager : ITickable
     {
         public event Action OnFireButton;
         public event Action<float> OnHorizontalDirection;

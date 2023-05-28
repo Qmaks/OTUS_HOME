@@ -19,7 +19,7 @@ public class SceneInstaller : MonoInstaller
 
     private void BindCommonSystems()
     {
-        Container.BindInterfacesAndSelfTo<InputManager>().FromComponentInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<InputManager>().FromNew().AsSingle().NonLazy();
         Container.BindInterfacesAndSelfTo<LevelBackground>().FromComponentInHierarchy().AsSingle();
         Container.Bind<GameManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<LevelBounds>().FromComponentInHierarchy().AsSingle();
@@ -28,9 +28,9 @@ public class SceneInstaller : MonoInstaller
     private void BindCharacterSystems()
     {
         Container.Bind<CharacterView>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<CharacterFireSystem>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<CharacterMoveSystem>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<CharacterDeathSystem>().FromComponentInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<CharacterMoveSystem>().FromNew().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<CharacterFireSystem>().FromNew().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<CharacterDeathSystem>().FromNew().AsSingle().NonLazy();
     }
 
     private void BindEnemySystems()
@@ -38,7 +38,8 @@ public class SceneInstaller : MonoInstaller
         Container.Bind<EnemyPositions>().FromComponentInHierarchy().AsSingle();
         Container.Bind<EnemyPool>().FromComponentInHierarchy().AsSingle();
         Container.Bind<EnemySpawnSystem>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<EnemyShootSystem>().FromComponentInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<EnemyShootSystem>().FromNew().AsSingle().NonLazy();
+
         Container.BindFactory<EnemyView, EnemyView.Factory>()
             .FromComponentInNewPrefab(enemy)
             .AsSingle();
@@ -46,9 +47,10 @@ public class SceneInstaller : MonoInstaller
 
     private void BindBulletSystems()
     {
-        Container.Bind<BulletSpawnSystem>().FromComponentInHierarchy().AsSingle();
-        Container.BindInterfacesAndSelfTo<BulletRemoveSystem>().FromComponentsInHierarchy().AsSingle();
-        Container.Bind<BulletCollisionSystem>().FromComponentInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<BulletSpawnSystem>().FromNew().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<BulletRemoveSystem>().FromNew().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<BulletCollisionSystem>().FromNew().AsSingle().NonLazy();
+
         Container.Bind<BulletConfig>().FromScriptableObjectResource("Configs/PlayerBullet").AsSingle();
 
         Container.BindMemoryPool<Bullet, Bullet.Pool>()

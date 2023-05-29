@@ -70,6 +70,8 @@
      <Compile Include="Assets\Homework 2\Scripts\Zenject\SceneInstaller.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletCollisionSystem.cs" />
      <Compile Include="Assets\Homework 2\Scripts\GameManager\GameManager.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Level\LevelBoundSceneLinks.cs" />
+     <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyPositionSceneLinks.cs" />
      <None Include="Assets\Resources\BillingMode.json" />
      <None Include="Assets\Homework 2\Resources\BillingMode.json" />
      <Reference Include="UnityEngine">

@@ -1,69 +1,71 @@
-using ShootEmUp;
 using UnityEngine;
 using Zenject;
 
-public class SceneInstaller : MonoInstaller
+namespace ShootEmUp
 {
-    [Header("Prefabs")]
-    [SerializeField] private GameObject character;
-    [SerializeField] private GameObject bullet;
-    [SerializeField] private GameObject enemy;
-
-    [Header("Parents")]
-    [SerializeField] private Transform characterTransform;
-    [SerializeField] private Transform bulletTransform;
-    [SerializeField] private Transform enemyTransform;
-
-    public override void InstallBindings()
+    public class SceneInstaller : MonoInstaller
     {
-        BindCommonSystems();
-        BindCharacterSystems();
-        BindEnemySystems();
-        BindBulletSystems();
-    }
+        [Header("Prefabs")] [SerializeField] private GameObject character;
+        [SerializeField] private GameObject bullet;
+        [SerializeField] private GameObject enemy;
 
-    private void BindCommonSystems()
-    {
-        Container.Bind<GameManager>().FromNew().AsSingle().NonLazy();
-        Container.BindInterfacesAndSelfTo<InputManager>().FromNew().AsSingle().NonLazy();
-        Container.BindInterfacesAndSelfTo<LevelBackground>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<CoroutineRunner>().FromComponentsInHierarchy().AsSingle();
-        Container.Bind<LevelBounds>().FromComponentInHierarchy().AsSingle();
-    }
+        [Header("Parents")] [SerializeField] private Transform characterTransform;
+        [SerializeField] private Transform bulletTransform;
+        [SerializeField] private Transform enemyTransform;
 
-    private void BindCharacterSystems()
-    {
-        Container.Bind<CharacterView>()
-            .FromComponentInNewPrefab(character)
-            .UnderTransform(characterTransform)
-            .AsSingle();
-        
-        Container.BindInterfacesAndSelfTo<CharacterMoveSystem>().FromNew().AsSingle().NonLazy();
-        Container.BindInterfacesAndSelfTo<CharacterFireSystem>().FromNew().AsSingle().NonLazy();
-        Container.BindInterfacesAndSelfTo<CharacterDeathSystem>().FromNew().AsSingle().NonLazy();
-    }
+        public override void InstallBindings()
+        {
+            BindCommonSystems();
+            BindCharacterSystems();
+            BindEnemySystems();
+            BindBulletSystems();
+        }
 
-    private void BindEnemySystems()
-    {
-        Container.Bind<EnemyPositions>().FromComponentInHierarchy().AsSingle();
-        Container.BindInterfacesAndSelfTo<EnemyShootSystem>().FromNew().AsSingle().NonLazy();
-        Container.BindInterfacesAndSelfTo<EnemySpawnSystem>().FromNew().AsSingle().NonLazy();
+        private void BindCommonSystems()
+        {
+            Container.Bind<GameManager>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<InputManager>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<LevelBackground>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<CoroutineRunner>().FromComponentsInHierarchy().AsSingle();
+            Container.Bind<LevelBounds>().FromNew().AsSingle().NonLazy();
+            Container.Bind<LevelBoundSceneLinks>().FromComponentInHierarchy().AsSingle();
+        }
 
-        Container.BindMemoryPool<EnemyView, EnemyView.Pool>()
-            .FromComponentInNewPrefab(enemy)
-            .UnderTransform(enemyTransform);
-    }
+        private void BindCharacterSystems()
+        {
+            Container.Bind<CharacterView>()
+                .FromComponentInNewPrefab(character)
+                .UnderTransform(characterTransform)
+                .AsSingle();
 
-    private void BindBulletSystems()
-    {
-        Container.BindInterfacesAndSelfTo<BulletSpawnSystem>().FromNew().AsSingle().NonLazy();
-        Container.BindInterfacesAndSelfTo<BulletRemoveSystem>().FromNew().AsSingle().NonLazy();
-        Container.BindInterfacesAndSelfTo<BulletCollisionSystem>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<CharacterMoveSystem>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<CharacterFireSystem>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<CharacterDeathSystem>().FromNew().AsSingle().NonLazy();
+        }
 
-        Container.Bind<BulletConfig>().FromScriptableObjectResource("Configs/PlayerBullet").AsSingle();
+        private void BindEnemySystems()
+        {
+            Container.Bind<EnemyPositions>().FromNew().AsSingle().NonLazy();
+            Container.Bind<EnemyPositionSceneLinks>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesAndSelfTo<EnemyShootSystem>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<EnemySpawnSystem>().FromNew().AsSingle().NonLazy();
 
-        Container.BindMemoryPool<Bullet, Bullet.Pool>()
-            .FromComponentInNewPrefab(bullet)
-            .UnderTransform(bulletTransform);
+            Container.BindMemoryPool<EnemyView, EnemyView.Pool>()
+                .FromComponentInNewPrefab(enemy)
+                .UnderTransform(enemyTransform);
+        }
+
+        private void BindBulletSystems()
+        {
+            Container.BindInterfacesAndSelfTo<BulletSpawnSystem>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<BulletRemoveSystem>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<BulletCollisionSystem>().FromNew().AsSingle().NonLazy();
+
+            Container.Bind<BulletConfig>().FromScriptableObjectResource("Configs/PlayerBullet").AsSingle();
+
+            Container.BindMemoryPool<Bullet, Bullet.Pool>()
+                .FromComponentInNewPrefab(bullet)
+                .UnderTransform(bulletTransform);
+        }
     }
 }

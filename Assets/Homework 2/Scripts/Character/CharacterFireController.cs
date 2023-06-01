@@ -4,11 +4,11 @@ using Zenject;
 
 namespace ShootEmUp
 {
-    public class CharacterFireSystem : IInitializable , IDisposable
+    public class CharacterFireController : IInitializable , IDisposable
     {
         [Inject] private CharacterView characterView;
         [Inject] private BulletConfig bulletConfig;
-        [Inject] private BulletSpawnSystem bulletSpawnSystem;
+        [Inject] private BulletSpawner bulletSpawner;
         [Inject] private InputManager inputManager;
         
         public void Initialize()
@@ -24,7 +24,7 @@ namespace ShootEmUp
         private void BulletShoot()
         {
             var weapon = characterView.WeaponComponent;
-            bulletSpawnSystem.FlyBulletByArgs(new BulletSpawnSystem.Args
+            bulletSpawner.FlyBulletByArgs(new BulletSpawner.Args
             {
                 IsPlayer = true,
                 PhysicsLayer = (int) this.bulletConfig.physicsLayer,

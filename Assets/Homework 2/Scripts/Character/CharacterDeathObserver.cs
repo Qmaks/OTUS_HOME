@@ -4,7 +4,7 @@ using Zenject;
 
 namespace ShootEmUp
 {
-    public class CharacterDeathSystem : IInitializable , IDisposable
+    public class CharacterDeathObserver : IInitializable , IDisposable
     {
         [Inject] private GameManager gameManager;
         [Inject] private CharacterView characterView;

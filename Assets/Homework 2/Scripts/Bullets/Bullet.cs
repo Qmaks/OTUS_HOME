@@ -6,12 +6,18 @@ namespace ShootEmUp
 {
     public sealed class Bullet : MonoBehaviour
     {
+        public event Action<Bullet, Collision2D> OnCollisionEntered;
+        
         [NonSerialized] public bool IsPlayer;
         [NonSerialized] public int Damage;
-        public BulletCollisionHandler collisionHandler;
 
         [SerializeField] private new Rigidbody2D rigidbody2D;
         [SerializeField] private SpriteRenderer spriteRenderer;
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            OnCollisionEntered?.Invoke(this, collision);
+        }
 
         private void SetVelocity(Vector2 velocity)
         {
@@ -32,10 +38,10 @@ namespace ShootEmUp
         {
             spriteRenderer.color = color;
         }
-        
-        public class Pool : MonoMemoryPool<BulletSpawnSystem.Args,Bullet>
+
+        public class Pool : MonoMemoryPool<BulletSpawner.Args,Bullet>
         {
-            protected override void Reinitialize(BulletSpawnSystem.Args args, Bullet bullet)
+            protected override void Reinitialize(BulletSpawner.Args args, Bullet bullet)
             {
                 bullet.SetPosition(args.Position);
                 bullet.SetColor(args.Color);

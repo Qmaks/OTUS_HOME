@@ -1,44 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Zenject;
 
 namespace ShootEmUp
 {
-    public class BulletRemoveSystem : IInitializable , IDisposable, IFixedTickable
+    public class BulletDestroyer : IInitializable , IDisposable, IFixedTickable
     {
         public event Action<Bullet> OnBulletRemoved;
         
         [Inject] private LevelBounds levelBounds;
-        [Inject] private BulletSpawnSystem bulletSpawnSystem;
-        [Inject] private BulletCollisionSystem bulletCollisionSystem;
+        [Inject] private BulletSpawner bulletSpawner;
         
         private readonly List<Bullet> cache = new();
         private readonly HashSet<Bullet> activeBullets = new();
 
         public void Initialize()
         {
-            bulletSpawnSystem.OnBulletSpawned += OnNewBulletSpawn;
-            bulletCollisionSystem.OnBulletCollision += OnBulletCollision;
+            bulletSpawner.OnBulletSpawned += OnNewBulletSpawn;
         }
 
         public void Dispose()
         {
-            bulletSpawnSystem.OnBulletSpawned -= OnNewBulletSpawn;
-            bulletCollisionSystem.OnBulletCollision -= OnBulletCollision;
-        }
-
-        private void OnBulletCollision(Bullet bullet)
-        {
-            RemoveBullet(bullet);
+            bulletSpawner.OnBulletSpawned -= OnNewBulletSpawn;
         }
 
         private void OnNewBulletSpawn(Bullet bullet)
         {
+            bullet.OnCollisionEntered += OnBulletCollision; 
             activeBullets.Add(bullet);
+        }
+
+        private void OnBulletCollision(Bullet bullet, Collision2D collision)
+        {
+            RemoveBullet(bullet);
         }
 
         private void RemoveBullet(Bullet bullet)
         {
+            bullet.OnCollisionEntered -= OnBulletCollision; 
             OnBulletRemoved?.Invoke(bullet);
             activeBullets.Remove(bullet);
         }

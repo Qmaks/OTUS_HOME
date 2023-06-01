@@ -1,3 +1,4 @@
+using ShootEmUp.Generators;
 using UnityEngine;
 using Zenject;
 
@@ -38,17 +39,18 @@ namespace ShootEmUp
                 .UnderTransform(characterTransform)
                 .AsSingle();
 
-            Container.BindInterfacesAndSelfTo<CharacterMoveSystem>().FromNew().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<CharacterFireSystem>().FromNew().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<CharacterDeathSystem>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<CharacterMoveController>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<CharacterFireController>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<CharacterDeathObserver>().FromNew().AsSingle().NonLazy();
         }
 
         private void BindEnemySystems()
         {
-            Container.Bind<EnemyPositions>().FromNew().AsSingle().NonLazy();
-            Container.Bind<EnemyPositionSceneLinks>().FromComponentInHierarchy().AsSingle();
-            Container.BindInterfacesAndSelfTo<EnemyShootSystem>().FromNew().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<EnemySpawnSystem>().FromNew().AsSingle().NonLazy();
+            Container.Bind<EnemyPositions>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesAndSelfTo<EnemyShooter>().FromNew().AsSingle().NonLazy();
+            Container.Bind<Generator>().To<GenerateBySeconds>().FromNew().AsSingle();
+            Container.BindInterfacesAndSelfTo<EnemySpawner>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<EnemyDestroyer>().FromNew().AsSingle().NonLazy();
 
             Container.BindMemoryPool<EnemyView, EnemyView.Pool>()
                 .FromComponentInNewPrefab(enemy)
@@ -57,9 +59,9 @@ namespace ShootEmUp
 
         private void BindBulletSystems()
         {
-            Container.BindInterfacesAndSelfTo<BulletSpawnSystem>().FromNew().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<BulletRemoveSystem>().FromNew().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<BulletCollisionSystem>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<BulletSpawner>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<BulletDestroyer>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<BulletDamager>().FromNew().AsSingle().NonLazy();
 
             Container.Bind<BulletConfig>().FromScriptableObjectResource("Configs/PlayerBullet").AsSingle();
 

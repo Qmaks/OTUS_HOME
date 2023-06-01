@@ -4,22 +4,22 @@ using Zenject;
 
 namespace ShootEmUp
 {
-    public class BulletSpawnSystem : IInitializable, IDisposable
+    public class BulletSpawner : IInitializable, IDisposable
     {
         public event Action<Bullet> OnBulletSpawned;
         
         [Inject] private Bullet.Pool bulletPool;
 
-        [Inject] private BulletRemoveSystem bulletRemoveSystem;
+        [Inject] private BulletDestroyer bulletDestroyer;
 
         public void Initialize()
         {
-            bulletRemoveSystem.OnBulletRemoved += OnBulletRemoved;
+            bulletDestroyer.OnBulletRemoved += OnBulletRemoved;
         }
 
         public void Dispose()
         {
-            bulletRemoveSystem.OnBulletRemoved -= OnBulletRemoved;
+            bulletDestroyer.OnBulletRemoved -= OnBulletRemoved;
         }
 
         private void OnBulletRemoved(Bullet bullet)

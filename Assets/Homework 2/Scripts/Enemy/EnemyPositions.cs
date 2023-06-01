@@ -3,18 +3,19 @@ using Zenject;
 
 namespace ShootEmUp
 {
-    public sealed class EnemyPositions
+    public sealed class EnemyPositions : MonoBehaviour
     {
-        [Inject] private EnemyPositionSceneLinks links;
+        public Transform[] spawnPositions;
+        public Transform[] attackPositions;
         
         public Transform RandomSpawnPosition()
         {
-            return RandomTransform(links.spawnPositions);
+            return RandomTransform(spawnPositions);
         }
 
         public Transform RandomAttackPosition()
         {
-            return RandomTransform(links.attackPositions);
+            return RandomTransform(attackPositions);
         }
 
         private Transform RandomTransform(Transform[] transforms)

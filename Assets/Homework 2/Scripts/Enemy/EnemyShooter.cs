@@ -21,11 +21,11 @@ namespace ShootEmUp
 
         private void OnEnemySpawned(GameObject enemy)
         {
-            enemy.GetComponent<HitPointsComponent>().HpEmpty += OnDestroyed;
+            enemy.GetComponent<HitPointsComponent>().HpEmpty += OnDestroyedEnemy;
             enemy.GetComponent<EnemyAttackAgent>().OnFire += Shoot;
         }
 
-        private void OnDestroyed(GameObject enemy)
+        private void OnDestroyedEnemy(GameObject enemy)
         {
             enemy.GetComponent<EnemyAttackAgent>().OnFire -= Shoot;
         }

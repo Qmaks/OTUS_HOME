@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Lessons.Architecture.PM
 {
-    public sealed class ProgressBarView : MonoBehaviour
+    public sealed class ProgressBar : MonoBehaviour
     {
         [SerializeField] private Image completedImage;
         [SerializeField] private Image fillImage;

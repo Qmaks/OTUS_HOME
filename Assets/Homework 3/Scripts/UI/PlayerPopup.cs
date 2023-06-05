@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-
 namespace Lessons.Architecture.PM
 {
     public class PlayerPopup : Popup
@@ -15,8 +14,8 @@ namespace Lessons.Architecture.PM
         [SerializeField] private TextMeshProUGUI level;
         [SerializeField] private TextMeshProUGUI description;
         [SerializeField] private Image icon;
-        [SerializeField] private ProgressBarView progressBar;
-        [SerializeField] private PlayerStatsView playerStats;
+        [SerializeField] private ProgressBar progressBar;
+        [SerializeField] private PlayerStats playerStats;
         [SerializeField] private LevelUpButton levelUpButton;
         [SerializeField] private Button closeButton;
 

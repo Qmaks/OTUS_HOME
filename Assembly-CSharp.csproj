@@ -60,9 +60,9 @@
      <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyPositions.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\IPlayerPopupPresenter.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\PlayerPopupPresenter.cs" />
-     <Compile Include="Assets\Homework 3\Scripts\UI\PlayerStatsView.cs" />
+     <Compile Include="Assets\Homework 3\Scripts\UI\PlayerStats.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Character\CharacterFireController.cs" />
-     <Compile Include="Assets\Homework 3\Scripts\UI\PlayerStatView.cs" />
+     <Compile Include="Assets\Homework 3\Scripts\UI\PlayerStat.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Model\CharacterStat.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\HitPointsComponent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Generators\Generator.cs" />
@@ -85,7 +85,7 @@
      <Compile Include="Assets\Homework 2\Scripts\Zenject\SceneInstaller.cs" />
      <Compile Include="Assets\Homework 2\Scripts\GameManager\GameManager.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\PopupManager.cs" />
-     <Compile Include="Assets\Homework 3\Scripts\UI\ProgressBarView.cs" />
+     <Compile Include="Assets\Homework 3\Scripts\UI\ProgressBar.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\LevelUpButton.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Model\TestRepository.cs" />
      <Folder Include="Assets" />

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Lessons.Architecture.PM
 {
-    public class PlayerStatView : MonoBehaviour
+    public class PlayerStat : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI stat;
         public string Name { get; private set; }

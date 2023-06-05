@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Lessons.Architecture.PM
 {
-    public class PlayerStatsView : MonoBehaviour
+    public class PlayerStats : MonoBehaviour
     {
-        [SerializeField] private PlayerStatView prefab;
+        [SerializeField] private PlayerStat prefab;
 
-        private List<PlayerStatView> statsViews = new List<PlayerStatView>();
+        private List<PlayerStat> statsViews = new List<PlayerStat>();
 
         public void SetPlayerStats(IPlayerPopupPresenter.IPlayerStat[] stats)
         {

@@ -1,6 +1,5 @@
 using UnityEngine;
-using UnityEngine.Serialization;
-using Zenject;
+~using Zenject;
 
 namespace Lessons.Architecture.PM
 {

@@ -10,11 +10,9 @@ namespace Lessons.Architecture.PM
         public event Action<string> OnNameChanged;
         public event Action<string> OnDescriptionChanged;
         public event Action<Sprite> OnIconChanged;
-        
         public event Action<string> OnLevelUp;
         public event Action<float,string> OnExperienceChanged;
         public event Action<bool> OnChangeCanLevelUp; 
-
         public event Action<IPlayerPopupPresenter.IPlayerStat> OnStatAdded;
         public event Action<IPlayerPopupPresenter.IPlayerStat> OnStatRemoved;
 

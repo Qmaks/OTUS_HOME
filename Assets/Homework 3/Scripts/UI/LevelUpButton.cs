@@ -34,7 +34,6 @@ namespace Game.UI
             button.onClick.RemoveListener(action);
         }
 
-
         public void SetAvailable(bool isAvailable)
         {
             var state = isAvailable ? State.AVAILABLE : State.LOCKED;

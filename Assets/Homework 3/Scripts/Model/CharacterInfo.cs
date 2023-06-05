@@ -12,8 +12,13 @@ namespace Lessons.Architecture.PM
         public event Action<CharacterStat> OnStatRemoved;
     
         [ShowInInspector]
-        private readonly HashSet<CharacterStat> stats = new();
+        private readonly HashSet<CharacterStat> stats;
 
+        public CharacterInfo(IEnumerable<CharacterStat> _stats)
+        {
+            stats = _stats.ToHashSet();
+        }
+        
         [Button]
         public void AddStat(CharacterStat stat)
         {
@@ -29,6 +34,22 @@ namespace Lessons.Architecture.PM
             if (this.stats.Remove(stat))
             {
                 this.OnStatRemoved?.Invoke(stat);
+            }
+        }
+        
+        [Button]
+        public void RemoveStat(string name)
+        {
+            foreach (var stat in stats)
+            {
+                if (stat.Name == name)
+                {
+                    if (stats.Remove(stat))
+                    {
+                        this.OnStatRemoved?.Invoke(stat);
+                    }        
+                    return;
+                }
             }
         }
 

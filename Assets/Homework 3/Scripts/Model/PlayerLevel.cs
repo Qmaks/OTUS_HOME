@@ -10,7 +10,7 @@ namespace Lessons.Architecture.PM
         public event Action<int> OnExperienceChanged;
 
         [ShowInInspector, ReadOnly]
-        public int CurrentLevel { get; private set; } = 1;
+        public int CurrentLevel { get; private set; }
 
         [ShowInInspector, ReadOnly]
         public int CurrentExperience { get; private set; }
@@ -21,6 +21,12 @@ namespace Lessons.Architecture.PM
             get { return 100 * (this.CurrentLevel + 1); }
         }
 
+        public PlayerLevel(int currentLevel, int currentExperience)
+        {
+            CurrentLevel = currentLevel;
+            CurrentExperience = currentExperience;
+        }
+        
         [Button]
         public void AddExperience(int range)
         {
@@ -36,6 +42,7 @@ namespace Lessons.Architecture.PM
             {
                 this.CurrentExperience = 0;
                 this.CurrentLevel++;
+                
                 this.OnLevelUp?.Invoke();
             }
         }

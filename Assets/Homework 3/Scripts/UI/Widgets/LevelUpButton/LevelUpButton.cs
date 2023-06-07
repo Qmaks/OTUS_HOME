@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Game.UI
+namespace Lessons.Architecture.PM
 {
     public sealed class LevelUpButton : MonoBehaviour
     {

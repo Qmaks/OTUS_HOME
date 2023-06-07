@@ -36,22 +36,6 @@ namespace Lessons.Architecture.PM
                 this.OnStatRemoved?.Invoke(stat);
             }
         }
-        
-        [Button]
-        public void RemoveStat(string name)
-        {
-            foreach (var stat in stats)
-            {
-                if (stat.Name == name)
-                {
-                    if (stats.Remove(stat))
-                    {
-                        this.OnStatRemoved?.Invoke(stat);
-                    }        
-                    return;
-                }
-            }
-        }
 
         public CharacterStat GetStat(string name)
         {

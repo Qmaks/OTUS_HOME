@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,31 +5,31 @@ namespace Lessons.Architecture.PM
 {
     public class PlayerStats : MonoBehaviour
     {
-        [SerializeField] private PlayerStat prefab;
+        [SerializeField] private PlayerStatView prefab;
 
-        private List<PlayerStat> statsViews = new List<PlayerStat>();
+        private List<PlayerStatView> statsViews = new List<PlayerStatView>();
 
-        public void SetPlayerStats(IPlayerPopupPresenter.IPlayerStat[] stats)
+        public void SetPlayerStats(IEnumerable<IPlayerStatsPresenter.IStat> stats)
         {
             foreach (var stat in stats)
             {
                 CreateStatView(stat);
             }
         }
-
-        private void CreateStatView(IPlayerPopupPresenter.IPlayerStat stat)
+        
+        private void CreateStatView(IPlayerStatsPresenter.IStat stat)
         {
             var statView = Instantiate(prefab, transform);
             statView.Construct(stat);
             statsViews.Add(statView);
         }
 
-        public void AddStat(IPlayerPopupPresenter.IPlayerStat stat)
+        public void AddStat(IPlayerStatsPresenter.IStat stat)
         {
             CreateStatView(stat);
         }
 
-        public void RemoveStat(IPlayerPopupPresenter.IPlayerStat stat)
+        public void RemoveStat(IPlayerStatsPresenter.IStat stat)
         {
             foreach (var view in statsViews)
             {

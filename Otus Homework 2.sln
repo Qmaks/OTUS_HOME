@@ -5,9 +5,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject", "Zenject.csproj",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-IntegrationTests-Editor", "Zenject-IntegrationTests-Editor.csproj", "{0af50b04-ea8f-e803-5b6b-bc7c94f2fb39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-IntegrationTests", "Zenject-IntegrationTests.csproj", "{cb95df2b-bff9-b91b-2369-2e9a9319ae91}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{14f4774b-499f-1dfb-c060-ad7348dc3f61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-IntegrationTests", "Zenject-IntegrationTests.csproj", "{cb95df2b-bff9-b91b-2369-2e9a9319ae91}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirenix.OdinInspector.CompatibilityLayer", "Sirenix.OdinInspector.CompatibilityLayer.csproj", "{b754e363-95f8-8a23-f3e1-83ac2b4fb6eb}"
 EndProject
@@ -36,10 +36,10 @@ Global
 		{8cbd42fe-3d99-ce5f-18e0-b41bdb5ebf81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0af50b04-ea8f-e803-5b6b-bc7c94f2fb39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0af50b04-ea8f-e803-5b6b-bc7c94f2fb39}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{cb95df2b-bff9-b91b-2369-2e9a9319ae91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{cb95df2b-bff9-b91b-2369-2e9a9319ae91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14f4774b-499f-1dfb-c060-ad7348dc3f61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{14f4774b-499f-1dfb-c060-ad7348dc3f61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{cb95df2b-bff9-b91b-2369-2e9a9319ae91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{cb95df2b-bff9-b91b-2369-2e9a9319ae91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{b754e363-95f8-8a23-f3e1-83ac2b4fb6eb}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{b754e363-95f8-8a23-f3e1-83ac2b4fb6eb}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{d0857af9-7615-cb66-6ab7-d97861852e28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

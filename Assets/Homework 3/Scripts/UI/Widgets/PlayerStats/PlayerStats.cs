@@ -11,12 +11,14 @@ namespace Lessons.Architecture.PM
 
         public void SetPlayerStats(IEnumerable<IPlayerStatsPresenter.IStat> stats)
         {
+            Clear();
+
             foreach (var stat in stats)
             {
                 CreateStatView(stat);
             }
         }
-        
+
         private void CreateStatView(IPlayerStatsPresenter.IStat stat)
         {
             var statView = Instantiate(prefab, transform);
@@ -39,6 +41,16 @@ namespace Lessons.Architecture.PM
                     return;
                 }
             }
+        }
+        
+        private void Clear()
+        {
+            foreach (var stat in statsViews)
+            {
+                Destroy(stat.gameObject);
+            }
+
+            statsViews.Clear();
         }
     }
 }

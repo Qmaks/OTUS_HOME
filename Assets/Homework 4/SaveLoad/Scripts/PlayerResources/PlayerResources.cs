@@ -6,7 +6,7 @@ namespace Homeworks.SaveLoad
 {
     public sealed class PlayerResources : MonoBehaviour
     {
-        [ShowInInspector, ReadOnly]
+        [ShowInInspector]
         private Dictionary<ResourceType, int> resources;
 
         public void SetResource(ResourceType resourceType, int resource)
@@ -17,6 +17,16 @@ namespace Homeworks.SaveLoad
         public int GetResource(ResourceType resourceType)
         {
             return this.resources[resourceType];
+        }
+
+        public void Setup(Dictionary<ResourceType, int> data)
+        {
+            this.resources = data;
+        }
+
+        public Dictionary<ResourceType,int> GetResources()
+        {
+            return resources;
         }
     }
 }

@@ -6,6 +6,7 @@ using Zenject;
 
 public class Scene4Installer : MonoInstaller
 {
+    [SerializeField] private Transform savableParent;
     [SerializeField] private PrefabDatabase prefabDatabase;
     
     public override void InstallBindings()
@@ -19,6 +20,7 @@ public class Scene4Installer : MonoInstaller
         Container.Bind<SavableObjectsManager>().FromComponentInHierarchy().AsSingle();
         Container.BindInterfacesTo<SavableObjectsManager>().FromComponentInHierarchy().AsCached();
         
+        
         //Repository...
         Container.BindInterfacesTo<GameRepository>().FromNew().AsSingle().NonLazy();
         
@@ -27,5 +29,7 @@ public class Scene4Installer : MonoInstaller
         Container.BindInterfacesTo<SavableObjectsSaveLoader>().FromNew().AsCached();
 
         Container.Bind<SavableObject>().FromComponentsInHierarchy().AsCached();
+        
+        Container.BindFactory<Transform, string, SavableObject, SavableObject.Factory>();
     }
 }

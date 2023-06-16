@@ -1,6 +1,9 @@
 ﻿using System;
 using Homework_4.SaveLoad.Scripts.Utils;
+using Homeworks.SaveLoad.LevelResources;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 {
@@ -26,8 +29,8 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 			
             public TransformData(Transform transform)
             {
-                Position = new Vector3S(transform.localPosition);
-                Rotation = new QuaternionS(transform.localRotation);
+                Position = new Vector3S(transform.position);
+                Rotation = new QuaternionS(transform.rotation);
             }
         }
 
@@ -108,8 +111,8 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 
 		private void LoadTransform(Transform transform, TransformData data)
 		{
-			transform.localPosition = data.Position.ToVector3();
-			transform.localRotation = data.Rotation.ToQuaternion();
+			transform.position = data.Position.ToVector3();
+			transform.rotation = data.Rotation.ToQuaternion();
 		}
         
         private string CalculateTransformPath(Transform root, Transform target)
@@ -129,6 +132,20 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
             }
 
             return path;
+        }
+
+        public class Factory : PlaceholderFactory<Transform,string,SavableObject>
+        {
+	        [Inject] private PrefabDatabase prefabDatabase;
+	        [Inject] private DiContainer container;
+
+	        public override SavableObject Create(Transform parent, string prefabId)
+	        {
+		        var prefab = prefabDatabase.GetPrefabWithID(prefabId);
+		        var instance = container.InstantiatePrefabForComponent<SavableObject>(prefab);
+				instance.transform.SetParent(parent);
+				return instance;
+	        }
         }
     }
 }

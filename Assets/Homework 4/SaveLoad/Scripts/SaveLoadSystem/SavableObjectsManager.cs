@@ -10,9 +10,31 @@ namespace Homeworks.SaveLoad.LevelResources
 {
     public class SavableObjectsManager : MonoBehaviour
     {
-        [Inject] private List<SavableObject> savableObjects;
-        [Inject] private PrefabDatabase prefabDatabase;
+        [SerializeField] private Transform initialPosition;
         
+        [Inject] private DiContainer container;
+        [Inject] private SavableObject.Factory factory;
+        [Inject] private List<SavableObject> savableObjects;
+
+
+        [Button(ButtonSizes.Large),GUIColor(0,1,0)]
+        public void Create(PrefabDatabase.ePrefabIDs prefabID )
+        {
+            var newSavableObject = factory.Create(transform, prefabID.ToString());
+            newSavableObject.transform.position = initialPosition.position;
+            newSavableObject.CreateGuid();
+            
+            if (newSavableObject != null)
+                savableObjects.Add(newSavableObject);
+        }
+
+        [Button(ButtonSizes.Large),GUIColor(0,1,0)]
+        public void Remove(SavableObject obj)
+        {
+            savableObjects.Remove(obj);
+            Destroy(obj.gameObject);
+        }
+
         public void Setup(Dictionary<string,SavableObject.Data> data)
         {
             SetupSceneObjects(data);
@@ -25,12 +47,12 @@ namespace Homeworks.SaveLoad.LevelResources
             {
                  if (!savableObjects.Exists(obj => obj.GetGuid() == new Guid(objData.SceneID)))
                  {
-                     var prefab = prefabDatabase.GetPrefabWithID(objData.PrefabID);
-            
-                     if (prefab != null)
+                     var newSavableObject = factory.Create(transform, objData.PrefabID);
+                     
+                     if (newSavableObject != null)
                      {
-                         var loadedObj = Instantiate<SavableObject>(prefab);
-                         loadedObj.Load(objData);
+                         newSavableObject.Load(objData);
+                         savableObjects.Add(newSavableObject);
                      }
                  }
             }

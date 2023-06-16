@@ -24,20 +24,9 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
             guid = new Guid(value);
         }
         
-        void CreateGuid()
+        public void CreateGuid()
         { 
-            if (guid == Guid.Empty)
-                guid = Guid.NewGuid();
-        }
-        
-        protected virtual void Awake()
-        {
-            CreateGuid();
-        }
-        
-        void OnValidate()
-        {
-            CreateGuid();
+            guid = Guid.NewGuid();
         }
     }
 }

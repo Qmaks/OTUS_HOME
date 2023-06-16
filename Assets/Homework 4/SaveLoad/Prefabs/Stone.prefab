@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869199794537658908}
   m_LocalRotation: {x: -0.60876137, y: -0, z: -0, w: 0.7933534}
-  m_LocalPosition: {x: -5.33, y: 5.89, z: 22.28}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -58,7 +58,7 @@ MonoBehaviour:
     - Name: guid
       Entry: 2
       Data: cef23440e50b4691a0830e13e68f2c98
-  PrefabID: 1
+  PrefabID: 0
 --- !u!114 &8317805116646253975
 MonoBehaviour:
   m_ObjectHideFlags: 0

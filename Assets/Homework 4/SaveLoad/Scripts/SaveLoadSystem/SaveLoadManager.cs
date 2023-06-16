@@ -1,4 +1,4 @@
-using Sirenix.OdinInspector;
+    using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
@@ -7,7 +7,7 @@ public class SaveLoadManager : MonoBehaviour
     [Inject] private ISaveLoader[] saveLoaders;
     [Inject] private IGameRepository gameRepository;
     
-    [Button]
+    [Button(ButtonSizes.Large),GUIColor(0,1,0)]
     public void Save()
     {
         foreach (var saveLoader in saveLoaders)
@@ -18,7 +18,7 @@ public class SaveLoadManager : MonoBehaviour
         gameRepository.SaveState();
     }
 
-    [Button]
+    [Button(ButtonSizes.Large),GUIColor(0,1,0)]
     public void Load()
     {
         gameRepository.LoadState();

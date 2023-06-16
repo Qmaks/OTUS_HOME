@@ -12,9 +12,14 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
         [Serializable]
         public enum ePrefabIDs
         {
-            NONE,
             STONE,
-            TREE
+            TREE,
+            LIGHT_ARCHER,
+            LIGHT_CAVALRY,
+            HEAVY_INFANTRY,
+            ORC_ARCHER,
+            ORC_CATAPULT,
+            ORC_SHAMAN
         }
         
         [Serializable]

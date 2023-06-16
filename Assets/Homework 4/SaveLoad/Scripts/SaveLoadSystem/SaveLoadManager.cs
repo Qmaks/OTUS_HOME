@@ -10,7 +10,7 @@ public class SaveLoadManager : MonoBehaviour
     [Button]
     public void Save()
     {
-        foreach (var saveLoader in this.saveLoaders)
+        foreach (var saveLoader in saveLoaders)
         {
             saveLoader.SaveGame();
         }
@@ -21,11 +21,11 @@ public class SaveLoadManager : MonoBehaviour
     [Button]
     public void Load()
     {
+        gameRepository.LoadState();
+        
         foreach (var saveLoader in this.saveLoaders)
         {
             saveLoader.LoadGame();
         }
-            
-        gameRepository.LoadState();
     }
 }

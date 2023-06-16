@@ -20,10 +20,21 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
         [Serializable]
         public class PrefabTypeHolder
         {
-            [FormerlySerializedAs("PrefabType")] public ePrefabIDs prefabID;
-            public GameObject Prefab;
+            public ePrefabIDs PrefabID;
+            public SavableObject Prefab;
         }
         
-        public List<PrefabTypeHolder> m_Prefabs;
+        public List<PrefabTypeHolder> Prefabs;
+
+        public SavableObject GetPrefabWithID(string id)
+        {
+            var prefabID = Enum.Parse<ePrefabIDs>(id);
+            foreach (var holder in Prefabs)
+            {
+                if (holder.PrefabID == prefabID)
+                    return holder.Prefab;
+            }
+            return null;
+        }
     }
 }

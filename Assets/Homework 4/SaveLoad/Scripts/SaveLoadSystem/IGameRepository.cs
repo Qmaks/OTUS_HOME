@@ -1,8 +1,8 @@
 public interface IGameRepository
 {
-    T GetData<T>();
-    bool TryGetData<T>(out T value);
-    void SetData<T>(T value);
+    T GetData<T>(string key);
+    bool TryGetData<T>(string key,out T value);
+    void SetData<T>(string key,T value);
     void SaveState();
     void LoadState();
 }

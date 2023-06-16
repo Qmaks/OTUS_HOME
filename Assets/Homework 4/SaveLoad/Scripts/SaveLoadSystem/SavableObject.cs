@@ -10,7 +10,8 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
         [Serializable]
         public struct Data
         {
-            public byte[] SceneID;
+            public string SceneID;
+            public string PrefabID;
             public string Name;
 
             public TransformData Transform;
@@ -35,10 +36,10 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
         {
             public string GameObjectPath;
             public Type ComponentType;
-            public object[] Members;
+            public string[] Members;
 
 
-            public ComponentData(string gameObjectPath, Type componentType, object[] members)
+            public ComponentData(string gameObjectPath, Type componentType, string[] members)
             {
                 Members = members;
 
@@ -55,7 +56,8 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 		{
 			var data = new Data();
 
-			data.SceneID = GetGuid().ToByteArray();
+			data.PrefabID = PrefabID.ToString();
+			data.SceneID  = GetGuid().ToString();
 			data.Name = name;
 			
 			data.Transform = new TransformData(transform);
@@ -98,7 +100,7 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 						component = obj.gameObject.AddComponent(compData.ComponentType);
 					}
 
-					ISaveableComponent savComponent = component as ISaveableComponent;
+					var savComponent = component as ISaveableComponent;
 					savComponent.LoadMembers(compData.Members);
                 }
 			}

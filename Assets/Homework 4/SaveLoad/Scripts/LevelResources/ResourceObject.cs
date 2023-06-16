@@ -1,3 +1,4 @@
+using System;
 using Homework_4.SaveLoad.Scripts.SaveLoadSystem;
 using UnityEngine;
 
@@ -12,18 +13,18 @@ namespace Homeworks.SaveLoad
         public int remainingCount;
 
         #region SaveLoad
-        public void LoadMembers(object[] members)
+        public void LoadMembers(string[] members)
         {
-            resourceType = (ResourceType)members[0];
-            remainingCount = (int)members[1];
+            resourceType   = Enum.Parse<ResourceType>(members[0]);
+            remainingCount = int.Parse(members[1]);
         }
 
-        public object[] SaveMembers()
+        public string[] SaveMembers()
         {
-            return new object[]
+            return new[]
             {
-                resourceType,
-                remainingCount
+                resourceType.ToString(),
+                remainingCount.ToString()
             };
         }
         #endregion

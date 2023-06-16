@@ -7,6 +7,7 @@ public class GameRepository : IGameRepository
     private const string GAME_STATE_KEY = "GameState";
 
     private Dictionary<string, string> gameState = new();
+    private IGameRepository gameRepositoryImplementation;
 
     public void LoadState()
     {
@@ -27,15 +28,15 @@ public class GameRepository : IGameRepository
         PlayerPrefs.SetString(GAME_STATE_KEY, serializedState);
     }
     
-    public T GetData<T>()
+    public T GetData<T>(string key)
     {
-        var serializedData = gameState[typeof(T).Name];
+        var serializedData = gameState[key];
         return JsonConvert.DeserializeObject<T>(serializedData);
     }
 
-    public bool TryGetData<T>(out T value)
+    public bool TryGetData<T>(string key,out T value)
     {
-        if (gameState.TryGetValue(typeof(T).Name, out var serializedData))
+        if (gameState.TryGetValue(key, out var serializedData))
         {
             value = JsonConvert.DeserializeObject<T>(serializedData);
             return true;
@@ -45,9 +46,9 @@ public class GameRepository : IGameRepository
         return false;
     }
 
-    public void SetData<T>(T value)
+    public void SetData<T>(string key,T value)
     {
         var serializedData = JsonConvert.SerializeObject(value);
-        gameState[typeof(T).Name] = serializedData;
+        gameState[key] = serializedData;
     }
 }

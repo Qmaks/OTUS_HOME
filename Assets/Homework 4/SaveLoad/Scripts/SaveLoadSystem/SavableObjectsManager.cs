@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Homework_4.SaveLoad.Scripts.SaveLoadSystem;
@@ -7,35 +8,48 @@ using Zenject;
 
 namespace Homeworks.SaveLoad.LevelResources
 {
-    public class SavableObjectsManager : MonoBehaviour , IInitializable
+    public class SavableObjectsManager : MonoBehaviour
     {
-        [Inject] private SavableObject[] savableObjects;
+        [Inject] private List<SavableObject> savableObjects;
+        [Inject] private PrefabDatabase prefabDatabase;
         
-        public void Initialize()
+        public void Setup(Dictionary<string,SavableObject.Data> data)
         {
-            InitializeFromScene();
+            SetupSceneObjects(data);
+            CreateObjectFromData(data);
         }
 
-        public void InitializeFromScene()
+        private void CreateObjectFromData(Dictionary<string,SavableObject.Data> data)
         {
-            //resources = GetComponentsInChildren<ResourceObject>().ToList();
-        }
-
-        public void Setup(List<SavableObject.Data> data)
-        {
-            // Загрузим данными обьекты которые уже присуствуют в сцене
-            for (var i = 0; i < m_CurrentSceneSaveables.Count; i++)
+            foreach (var objData in data.Values)
             {
-                if (data.TryGetValue(m_CurrentSceneSaveables[i].GetGuid().ToString(), out SaveableObject.Data objData))
-                    m_CurrentSceneSaveables[i].Load(objData);
-                else
-                    Destroy(m_CurrentSceneSaveables[i].gameObject);
+                 if (!savableObjects.Exists(obj => obj.GetGuid() == new Guid(objData.SceneID)))
+                 {
+                     var prefab = prefabDatabase.GetPrefabWithID(objData.PrefabID);
+            
+                     if (prefab != null)
+                     {
+                         var loadedObj = Instantiate<SavableObject>(prefab);
+                         loadedObj.Load(objData);
+                     }
+                 }
             }
         }
 
-        public IEnumerable<SavableObject.Data> GetObjects()
+        private void SetupSceneObjects(Dictionary<string, SavableObject.Data> data)
         {
-            return savableObjects.Select(s => s.Save());
+            foreach (var so in savableObjects)
+            {
+                if (data.TryGetValue(so.GetGuid().ToString(), out SavableObject.Data objData))
+                    so.Load(objData);
+                else
+                    Destroy(so.gameObject);
+            }
+        }
+
+        public Dictionary<string,SavableObject.Data> GetObjects()
+        {
+            return savableObjects.Select(so => so.Save()).ToDictionary(data => data.SceneID.ToString());
         }
     }
 }

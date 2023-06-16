@@ -1,12 +1,18 @@
 using Homework_4.SaveLoad.Scripts.SaveLoadSystem;
 using Homeworks.SaveLoad;
 using Homeworks.SaveLoad.LevelResources;
+using UnityEngine;
 using Zenject;
 
 public class Scene4Installer : MonoInstaller
 {
+    [SerializeField] private PrefabDatabase prefabDatabase;
+    
     public override void InstallBindings()
     {
+        //Database...
+        Container.Bind<PrefabDatabase>().FromInstance(prefabDatabase).AsSingle();
+        
         //Services...
         Container.Bind<SaveLoadManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<PlayerResources>().FromComponentInHierarchy().AsSingle();

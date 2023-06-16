@@ -5,6 +5,11 @@ namespace Homeworks.SaveLoad
 {
     public class PlayerResourcesSaveLoader : SaveLoader<Dictionary<ResourceType, int>,PlayerResources>
     {
+        public PlayerResourcesSaveLoader()
+        {
+            KEY = "PLAYER_RESOURCES";
+        }
+        
         protected override void SetupData(PlayerResources service, Dictionary<ResourceType, int> data)
         {
             service.Setup(data);

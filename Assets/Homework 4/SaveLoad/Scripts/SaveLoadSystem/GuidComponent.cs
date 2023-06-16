@@ -19,14 +19,14 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
             return guid;
         }
         
-        public void SetGuid(byte[] value)
+        public void SetGuid(string value)
         {
-            guid = new System.Guid(value);
+            guid = new Guid(value);
         }
         
         void CreateGuid()
         { 
-            if (guid == System.Guid.Empty)
+            if (guid == Guid.Empty)
                 guid = Guid.NewGuid();
         }
         

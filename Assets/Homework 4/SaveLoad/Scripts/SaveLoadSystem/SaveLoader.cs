@@ -1,5 +1,4 @@
-﻿    using UnityEngine.iOS;
-    using Zenject;
+﻿    using Zenject;
 
     public abstract class SaveLoader<TData, TService> : ISaveLoader
     {

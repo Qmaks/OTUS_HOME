@@ -56,7 +56,7 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 			var data = new Data();
 
 			data.PrefabId = PrefabID.ToString();
-			data.GuId  = GetGuid();
+			data.GuId  = GuId;
 			data.Name = name;
 			
 			data.Transform = new TransformData(transform);
@@ -77,7 +77,7 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 		public void Load(Data data)
 		{
 			gameObject.name = data.Name;
-            SetGuid(data.GuId);
+            GuId = data.GuId;
 
 			LoadTransform(transform, data.Transform);
 

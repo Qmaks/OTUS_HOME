@@ -13,7 +13,8 @@ namespace Homeworks.SaveLoad
 
         [SerializeField]
         public int damage;
-
+        
+        #region SaveLoad
         public void LoadMembers(object[] members)
         {
             hitPoints = (int)members[0];
@@ -30,5 +31,6 @@ namespace Homeworks.SaveLoad
                 damage
             };
         }
+        #endregion
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using Sirenix.OdinInspector;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
@@ -9,20 +8,12 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
     {
         [SerializeField,InlineButton("CreateGuid")] 
         private string guid = string.Empty;
-        
-        public string GetGuid()
+
+        public string GuId
         {
-            return guid;
+            get => guid;
+            set => guid = value;
         }
-        
-        public void SetGuid(string value)
-        {
-            guid = value;
-        }
-        
-        public void CreateGuid()
-        { 
-            guid = Guid.NewGuid().ToString();
-        }
+        public void CreateGuid() => guid = Guid.NewGuid().ToString(); 
     }
 }

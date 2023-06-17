@@ -9,6 +9,7 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
     public class GameRepository : IGameRepository
     {
         private const string GAME_SAVE_FILE = "/GameState.sav";
+        private readonly DataFormat dataFormat = DataFormat.Binary;
 
         private Dictionary<string, object> gameState = new();
         
@@ -17,7 +18,7 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
             if (File.Exists(GetSaveFilePath()))
             {
                 var bytes = File.ReadAllBytes(GetSaveFilePath());
-                gameState = SerializationUtility.DeserializeValue<Dictionary<string,object>>(bytes, DataFormat.Binary);
+                gameState = SerializationUtility.DeserializeValue<Dictionary<string,object>>(bytes, dataFormat);
             }
             else
             {
@@ -27,7 +28,7 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 
         public void SaveState()
         {
-            var bytes = SerializationUtility.SerializeValue(gameState, DataFormat.Binary);
+            var bytes = SerializationUtility.SerializeValue(gameState, dataFormat);
             File.WriteAllBytes(GetSaveFilePath(), bytes);
         }
 

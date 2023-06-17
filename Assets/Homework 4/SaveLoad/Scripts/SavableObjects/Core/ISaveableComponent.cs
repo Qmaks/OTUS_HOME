@@ -2,7 +2,7 @@
 {
     public interface ISaveableComponent
     {
-        void LoadMembers(string[] members);
-        string[] SaveMembers();
+        void LoadMembers(object[] members);
+        object[] SaveMembers();
     }
 }

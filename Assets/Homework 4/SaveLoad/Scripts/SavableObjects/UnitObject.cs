@@ -14,20 +14,20 @@ namespace Homeworks.SaveLoad
         [SerializeField]
         public int damage;
 
-        public void LoadMembers(string[] members)
+        public void LoadMembers(object[] members)
         {
-            hitPoints = int.Parse(members[0]);
-            speed = int.Parse(members[1]);
-            damage = int.Parse(members[2]);
+            hitPoints = (int)(long)members[0];
+            speed = (int)(long)members[1];
+            damage = (int)(long)members[2];
         }
 
-        public string[] SaveMembers()
+        public object[] SaveMembers()
         {
-            return new[]
+            return new object[]
             {
-                hitPoints.ToString(),
-                speed.ToString(),
-                damage.ToString()
+                hitPoints,
+                speed,
+                damage
             };
         }
     }

@@ -1,5 +1,6 @@
 using System;
 using Homework_4.SaveLoad.Scripts.SaveLoadSystem;
+using ModestTree;
 using UnityEngine;
 
 namespace Homeworks.SaveLoad
@@ -13,18 +14,18 @@ namespace Homeworks.SaveLoad
         public int remainingCount;
 
         #region SaveLoad
-        public void LoadMembers(string[] members)
+        public void LoadMembers(object[] members)
         {
-            resourceType   = Enum.Parse<ResourceType>(members[0]);
-            remainingCount = int.Parse(members[1]);
+            resourceType   = (ResourceType)(int)(long)members[1];
+            remainingCount = (int)(long)members[1];
         }
 
-        public string[] SaveMembers()
+        public object[] SaveMembers()
         {
-            return new[]
+            return new object[]
             {
-                resourceType.ToString(),
-                remainingCount.ToString()
+                resourceType,
+                remainingCount
             };
         }
         #endregion

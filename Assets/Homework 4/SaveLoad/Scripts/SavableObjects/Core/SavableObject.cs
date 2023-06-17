@@ -1,7 +1,5 @@
 ﻿using System;
 using Homework_4.SaveLoad.Scripts.Utils;
-using Homeworks.SaveLoad.LevelResources;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
@@ -15,8 +13,8 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
         [Serializable]
         public struct Data
         {
-            [FormerlySerializedAs("GuID")] [FormerlySerializedAs("SceneID")] public string GuId;
-            [FormerlySerializedAs("PrefabID")] public string PrefabId;
+            public string GuId;
+            public string PrefabId;
             public string Name;
 
             public TransformData Transform;
@@ -40,10 +38,9 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
         public struct ComponentData
         {
             public Type ComponentType;
-            public string[] Members;
+            public object[] Members;
 
-
-            public ComponentData(Type componentType, string[] members)
+            public ComponentData(Type componentType, object[] members)
             {
                 Members = members;
                 ComponentType = componentType;
@@ -107,27 +104,8 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 			transform.position = data.Position.ToVector3();
 			transform.rotation = data.Rotation.ToQuaternion();
 		}
-        
-        private string CalculateTransformPath(Transform root, Transform target)
-        {
-            string path = string.Empty;
 
-            if (target != root)
-            {
-                path = target.name;
-                Transform parent = target.parent;
-
-                while (parent != null && parent != root)
-                {
-                    path = parent.name + (path != string.Empty ? "/" : "") + path;
-                    parent = parent.parent;
-                }
-            }
-
-            return path;
-        }
-
-        public class Factory : PlaceholderFactory<Transform,string,SavableObject>
+		public class Factory : PlaceholderFactory<Transform,string,SavableObject>
         {
 	        [Inject] private PrefabDatabase prefabDatabase;
 	        [Inject] private DiContainer container;

@@ -45,9 +45,9 @@ namespace Homeworks.SaveLoad.LevelResources
         {
             foreach (var objData in data.Values)
             {
-                 if (!savableObjects.Exists(obj => obj.GetGuid() == new Guid(objData.SceneID)))
+                 if (!savableObjects.Exists(obj => obj.GetGuid() == objData.GuId))
                  {
-                     var newSavableObject = factory.Create(transform, objData.PrefabID);
+                     var newSavableObject = factory.Create(transform, objData.PrefabId);
                      
                      if (newSavableObject != null)
                      {
@@ -62,7 +62,7 @@ namespace Homeworks.SaveLoad.LevelResources
         {
             foreach (var so in savableObjects)
             {
-                if (data.TryGetValue(so.GetGuid().ToString(), out SavableObject.Data objData))
+                if (data.TryGetValue(so.GetGuid(), out SavableObject.Data objData))
                     so.Load(objData);
                 else
                     Destroy(so.gameObject);
@@ -71,7 +71,7 @@ namespace Homeworks.SaveLoad.LevelResources
 
         public Dictionary<string,SavableObject.Data> GetObjects()
         {
-            return savableObjects.Select(so => so.Save()).ToDictionary(data => data.SceneID.ToString());
+            return savableObjects.Select(so => so.Save()).ToDictionary(data => data.GuId);
         }
     }
 }

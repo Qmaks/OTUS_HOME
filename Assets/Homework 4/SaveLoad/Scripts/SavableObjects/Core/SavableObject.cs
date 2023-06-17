@@ -3,18 +3,20 @@ using Homework_4.SaveLoad.Scripts.Utils;
 using Homeworks.SaveLoad.LevelResources;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 {
+
     public class SavableObject : GuidComponent
     {
 	    #region internal
         [Serializable]
         public struct Data
         {
-            public string SceneID;
-            public string PrefabID;
+            [FormerlySerializedAs("GuID")] [FormerlySerializedAs("SceneID")] public string GuId;
+            [FormerlySerializedAs("PrefabID")] public string PrefabId;
             public string Name;
 
             public TransformData Transform;
@@ -37,21 +39,18 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
         [Serializable]
         public struct ComponentData
         {
-            public string GameObjectPath;
             public Type ComponentType;
             public string[] Members;
 
 
-            public ComponentData(string gameObjectPath, Type componentType, string[] members)
+            public ComponentData(Type componentType, string[] members)
             {
                 Members = members;
-
-                GameObjectPath = gameObjectPath;
                 ComponentType = componentType;
             }
         }
         #endregion
-        
+
         [SerializeField]
         private PrefabDatabase.ePrefabIDs PrefabID;
         
@@ -59,8 +58,8 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 		{
 			var data = new Data();
 
-			data.PrefabID = PrefabID.ToString();
-			data.SceneID  = GetGuid().ToString();
+			data.PrefabId = PrefabID.ToString();
+			data.GuId  = GetGuid();
 			data.Name = name;
 			
 			data.Transform = new TransformData(transform);
@@ -72,8 +71,7 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 			for(int i = 0;i < savComponents.Length;i++)
 			{
 				var gameObj = (savComponents[i] as Component).gameObject;
-				var gameObjPath = CalculateTransformPath(transform, gameObj.transform);
-				data.Components[i] = new ComponentData(gameObjPath, savComponents[i].GetType(), savComponents[i].SaveMembers());
+				data.Components[i] = new ComponentData(savComponents[i].GetType(), savComponents[i].SaveMembers());
 			}
 
             return data;
@@ -82,7 +80,7 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 		public void Load(Data data)
 		{
 			gameObject.name = data.Name;
-            SetGuid(data.SceneID);
+            SetGuid(data.GuId);
 
 			LoadTransform(transform, data.Transform);
 
@@ -91,16 +89,11 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 			{
 				foreach (ComponentData compData in data.Components)
 				{
-					var obj = (compData.GameObjectPath != gameObject.name) ? transform.Find(compData.GameObjectPath) : transform;
-
-					if (obj == null)
-						continue;
-
-					var component = obj.GetComponent(compData.ComponentType);
+					var component = transform.GetComponent(compData.ComponentType);
 
 					if (component == null)
 					{
-						component = obj.gameObject.AddComponent(compData.ComponentType);
+						component = gameObject.AddComponent(compData.ComponentType);
 					}
 
 					var savComponent = component as ISaveableComponent;

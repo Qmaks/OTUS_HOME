@@ -7,7 +7,7 @@ namespace Homeworks.SaveLoad
     public sealed class PlayerResources : MonoBehaviour
     {
         [ShowInInspector]
-        private Dictionary<ResourceType, int> resources;
+        private Dictionary<ResourceType, int> resources = new();
 
         public void SetResource(ResourceType resourceType, int resource)
         {

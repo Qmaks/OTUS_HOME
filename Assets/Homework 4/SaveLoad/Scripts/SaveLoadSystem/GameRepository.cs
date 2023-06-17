@@ -1,54 +1,62 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.IO;
 using Newtonsoft.Json;
+using Sirenix.Serialization;
 using UnityEngine;
 
-public class GameRepository : IGameRepository
+namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 {
-    private const string GAME_STATE_KEY = "GameState";
-
-    private Dictionary<string, string> gameState = new();
-    private IGameRepository gameRepositoryImplementation;
-
-    public void LoadState()
+    public class GameRepository : IGameRepository
     {
-        if (PlayerPrefs.HasKey(GAME_STATE_KEY))
-        {
-            var serializedState = PlayerPrefs.GetString(GAME_STATE_KEY);
-            gameState = JsonConvert.DeserializeObject<Dictionary<string, string>>(serializedState);
-        }
-        else
-        {
-            gameState = new Dictionary<string, string>();
-        }
-    }
+        private const string GAME_SAVE_FILE = "/GameState.sav";
 
-    public void SaveState()
-    {
-        var serializedState = JsonConvert.SerializeObject(gameState);
-        PlayerPrefs.SetString(GAME_STATE_KEY, serializedState);
-    }
+        private Dictionary<string, object> gameState = new();
+        
+        public void LoadState()
+        {
+            if (File.Exists(GetSaveFilePath()))
+            {
+                var bytes = File.ReadAllBytes(GetSaveFilePath());
+                gameState = SerializationUtility.DeserializeValue<Dictionary<string,object>>(bytes, DataFormat.Binary);
+            }
+            else
+            {
+                gameState = new Dictionary<string, object>();
+            }
+        }
+
+        public void SaveState()
+        {
+            var bytes = SerializationUtility.SerializeValue(gameState, DataFormat.Binary);
+            File.WriteAllBytes(GetSaveFilePath(), bytes);
+        }
+
+        private string GetSaveFilePath()
+        {
+            return Application.persistentDataPath + GAME_SAVE_FILE;
+        }
     
-    public T GetData<T>(string key)
-    {
-        var serializedData = gameState[key];
-        return JsonConvert.DeserializeObject<T>(serializedData);
-    }
-
-    public bool TryGetData<T>(string key,out T value)
-    {
-        if (gameState.TryGetValue(key, out var serializedData))
+        public T GetData<T>(string key)
         {
-            value = JsonConvert.DeserializeObject<T>(serializedData);
-            return true;
+            var serializedData = gameState[key];
+            return (T)serializedData;
         }
 
-        value = default;
-        return false;
-    }
+        public bool TryGetData<T>(string key,out T value)
+        {
+            if (gameState.TryGetValue(key, out var serializedData))
+            {
+                value = (T)serializedData;
+                return true;
+            }
 
-    public void SetData<T>(string key,T value)
-    {
-        var serializedData = JsonConvert.SerializeObject(value);
-        gameState[key] = serializedData;
+            value = default;
+            return false;
+        }
+
+        public void SetData<T>(string key,T value)
+        {
+            gameState[key] = value;
+        }
     }
 }

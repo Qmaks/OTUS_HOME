@@ -114,10 +114,10 @@
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SavableObjects\Core\GuidComponent.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\IPlayerStatsPresenter.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\PopupManager.cs" />
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\GameRepository.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerInfo\IPlayerInfoPresenter.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\ProgressBar.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStatsWidget.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\GameRepository.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Homework 4\SaveLoad\Scripts\SavableObjects\Core" />
      <Folder Include="Assets\Homework 2\Scripts" />

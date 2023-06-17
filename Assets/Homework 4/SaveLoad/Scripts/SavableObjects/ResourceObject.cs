@@ -16,8 +16,8 @@ namespace Homeworks.SaveLoad
         #region SaveLoad
         public void LoadMembers(object[] members)
         {
-            resourceType   = (ResourceType)(int)(long)members[1];
-            remainingCount = (int)(long)members[1];
+            resourceType   = (ResourceType)members[1];
+            remainingCount = (int)members[1];
         }
 
         public object[] SaveMembers()

@@ -16,9 +16,9 @@ namespace Homeworks.SaveLoad
 
         public void LoadMembers(object[] members)
         {
-            hitPoints = (int)(long)members[0];
-            speed = (int)(long)members[1];
-            damage = (int)(long)members[2];
+            hitPoints = (int)members[0];
+            speed = (int)members[1];
+            damage = (int)members[2];
         }
 
         public object[] SaveMembers()

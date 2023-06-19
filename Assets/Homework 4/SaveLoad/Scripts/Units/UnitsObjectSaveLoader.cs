@@ -25,6 +25,7 @@ namespace Homeworks.SaveLoad
 
                 unit = !service.HasUnit(unitData.Name) ? service.Create(unitData.Type) : service.GetUnit(unitData.Name);
 
+                unitData.TransformData.Setup(unit.transform);
                 unit.damage = unitData.damage;
                 unit.speed = unitData.speed;
                 unit.hitPoints = unitData.hitPoints;

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using Newtonsoft.Json;
 using Sirenix.Serialization;
 using UnityEngine;
 
@@ -8,7 +7,7 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 {
     public class GameRepository : IGameRepository
     {
-        private const string GAME_SAVE_FILE = "/SaveFile.sav";
+        private const string GAME_SAVE_FILE = "/SaveFile.dat";
         private readonly DataFormat dataFormat = DataFormat.Binary;
 
         private Dictionary<string, object> gameState = new();

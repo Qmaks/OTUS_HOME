@@ -1,12 +1,14 @@
-﻿using Homework_4.SaveLoad.Scripts.Utils;
+﻿using System;
+using Homework_4.SaveLoad.Scripts.Utils;
 using UnityEngine;
 
 namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 {
+    [Serializable]
     public class TransformData
     {
-        private Vector3S position;
-        private QuaternionS rotation;
+        public Vector3S position;
+        public QuaternionS rotation;
 			
         public TransformData(Transform transform)
         {

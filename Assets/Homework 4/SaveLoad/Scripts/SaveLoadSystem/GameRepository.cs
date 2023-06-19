@@ -8,7 +8,7 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 {
     public class GameRepository : IGameRepository
     {
-        private const string GAME_SAVE_FILE = "/GameState.sav";
+        private const string GAME_SAVE_FILE = "/SaveFile.sav";
         private readonly DataFormat dataFormat = DataFormat.Binary;
 
         private Dictionary<string, object> gameState = new();

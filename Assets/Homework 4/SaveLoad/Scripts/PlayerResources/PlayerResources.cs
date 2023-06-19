@@ -9,11 +9,12 @@ namespace Homeworks.SaveLoad
         [ShowInInspector]
         private Dictionary<ResourceType, int> resources = new();
 
+        
         public void SetResource(ResourceType resourceType, int resource)
         {
             this.resources[resourceType] = resource;
         }
-        
+
         public int GetResource(ResourceType resourceType)
         {
             return this.resources[resourceType];

@@ -105,7 +105,7 @@
      <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyShooter.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerInfo\PlayerInfoPresenter.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerInfo\PlayerInfoWidget.cs" />
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SavableObjects\ResourceObject.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Resources\ResourceObject.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\Widget.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\PlayerResources\PlayerResources.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Model\TestRepository.cs" />
@@ -118,6 +118,10 @@
      <Compile Include="Assets\Homework 3\Scripts\UI\ProgressBar.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStatsWidget.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\GameRepository.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Resources\ResourcesManager.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Resources\ResourcesObjectsSaveLoader.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Resources\ResourceObjectData.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\TransformData.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Homework 4\SaveLoad\Scripts\SavableObjects\Core" />
      <Folder Include="Assets\Homework 2\Scripts" />
@@ -275,6 +279,7 @@
      <Folder Include="Assets\Homework 2\Scripts\Input" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Undead\SampleScenes" />
+     <Folder Include="Assets\Homework 4\SaveLoad\Scripts\Resources" />
      <Folder Include="Assets\Homework 2\Scripts\Bullets" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
      <Folder Include="Assets\AssetPacks\Tiles\Materials" />

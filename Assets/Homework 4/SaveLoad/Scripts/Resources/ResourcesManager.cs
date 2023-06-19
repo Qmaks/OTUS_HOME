@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Homeworks.SaveLoad
 {
-    public class ResourcesManager : MonoBehaviour
+    public class ResourcesManager : MonoBehaviour, IInitializable
     {
         [ShowInInspector]
         private Dictionary<string, ResourceObject> resources = new();

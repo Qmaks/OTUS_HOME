@@ -1,24 +1,22 @@
 using Homework_4.SaveLoad.Scripts.SaveLoadSystem;
 using Homeworks.SaveLoad;
-using Homeworks.SaveLoad.LevelResources;
 using UnityEngine;
 using Zenject;
 
 public class Scene4Installer : MonoInstaller
 {
+    [SerializeField] private UnitsPrefabDatabase unitsPrefabDatabase;
+    
     public override void InstallBindings()
     {
         //Database...
-        Container.Bind<PrefabDatabase>().FromInstance(prefabDatabase).AsSingle();
+        Container.Bind<UnitsPrefabDatabase>().FromInstance(unitsPrefabDatabase).AsSingle();
         
         //Services...
         Container.BindInterfacesAndSelfTo<SaveLoadManager>().FromComponentInHierarchy().AsSingle();
         Container.Bind<PlayerResources>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<ResourcesManager>().FromComponentInHierarchy().AsSingle();
-        
-        //TODO : Delete
-        //Container.Bind<SavableObjectsManager>().FromComponentInHierarchy().AsSingle();
-        Container.BindInterfacesTo<SavableObjectsManager>().FromComponentInHierarchy().AsCached();
+        Container.BindInterfacesAndSelfTo<ResourcesManager>().FromComponentInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<UnitsManager>().FromComponentInHierarchy().AsSingle();
         
         //Repository...
         Container.BindInterfacesTo<GameRepository>().FromNew().AsSingle().NonLazy();
@@ -26,14 +24,10 @@ public class Scene4Installer : MonoInstaller
         //SaveLoaders...
         Container.BindInterfacesTo<ResourcesObjectsSaveLoader>().FromNew().AsCached();
         Container.BindInterfacesTo<PlayerResourcesSaveLoader>().FromNew().AsCached();
-        //Container.BindInterfacesTo<SavableObjectsSaveLoader>().FromNew().AsCached();
+        Container.BindInterfacesTo<UnitsObjectSaveLoader>().FromNew().AsCached();
 
-        //TODO : Delete
-        //Container.Bind<SavableObject>().FromComponentsInHierarchy().AsCached();
-        
         //Factory...
-        Container.BindFactory<Transform, string, SavableObject, SavableObject.Factory>();
+        Container.BindFactory<Transform, UnitType, UnitObject, UnitFactory>();
     }
 
-    [SerializeField] private PrefabDatabase prefabDatabase;
 }

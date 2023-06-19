@@ -41,15 +41,13 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SavableObjects\Core\ISaveableComponent.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\LevelUpButton\LevelUpButton.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Common\CoroutineRunner.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\WeaponComponent.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Model\CharacterInfo.cs" />
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Utils\QuaternionS.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Utils\QuaternionS.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Character\CharacterView.cs" />
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Utils\Vector3S.cs" />
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SavableObjects\Core\SavableObjectsManager.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Utils\Vector3S.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletDamager.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Character\CharacterDeathObserver.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Zenject\SceneInstaller.cs" />
@@ -67,7 +65,7 @@
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyMoveAgent.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\PlayerPopup.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\PlayerResources\PlayerResourcesSaveLoader.cs" />
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SavableObjects\UnitObject.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitObject.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyPositions.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Zenject\Scene4Installer.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStats.cs" />
@@ -83,7 +81,6 @@
      <Compile Include="Assets\Homework 2\Scripts\Input\InputManager.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyAttackAgent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Level\LevelBackground.cs" />
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SavableObjects\Core\PrefabDatabase.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\LevelUpButton\LevelUpButtonPresenter.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\TeamComponent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Common\PhysicsLayer.cs" />
@@ -95,9 +92,7 @@
      <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletSpawner.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\PopupName.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\IGameRepository.cs" />
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SavableObjects\Core\SavableObjectsSaveLoader.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyDestroyer.cs" />
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SavableObjects\Core\SavableObject.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Model\PlayerLevel.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerProgress\PlayerProgressWidget.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Model\UserInfo.cs" />
@@ -111,7 +106,6 @@
      <Compile Include="Assets\Homework 3\Scripts\Model\TestRepository.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Zenject\SceneInstaller.cs" />
      <Compile Include="Assets\Homework 2\Scripts\GameManager\GameManager.cs" />
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SavableObjects\Core\GuidComponent.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\IPlayerStatsPresenter.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\PopupManager.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerInfo\IPlayerInfoPresenter.cs" />
@@ -121,18 +115,24 @@
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Resources\ResourcesManager.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Resources\ResourcesObjectsSaveLoader.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Resources\ResourceObjectData.cs" />
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\TransformData.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Utils\TransformData.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitObjectData.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitsManager.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitsObjectSaveLoader.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitType.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitFactory.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitsPrefabDatabase.cs" />
      <Folder Include="Assets" />
-     <Folder Include="Assets\Homework 4\SaveLoad\Scripts\SavableObjects\Core" />
      <Folder Include="Assets\Homework 2\Scripts" />
      <Folder Include="Assets\AssetPacks\PolygonFantasyKingdom\Textures\Misc" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\prefabs\High_Elves" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+     <Folder Include="Assets\Homework 4\SaveLoad\Prefabs\Units" />
      <Folder Include="Assets\Homework 2\Scripts\Enemy\Agents" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Undead\models" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Undead\models\Materials\Colors" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Knights\models" />
-     <Folder Include="Assets\Homework 4\SaveLoad\Scripts\Utils" />
+     <Folder Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Utils" />
      <Folder Include="Assets\Homework 4\SaveLoad\Scripts\Zenject" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <Folder Include="Assets\Homework 2\Resources\Configs" />
@@ -209,6 +209,7 @@
      <Folder Include="Assets\Homework 4\SaveLoad\Scripts" />
      <Folder Include="Assets\Homework 2\Scripts\Enemy\Generators" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Undead\animation\infantry" />
+     <Folder Include="Assets\Homework 4\SaveLoad\Scripts\Units" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Knights\animation\worker" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Orcs\animation\wolf_rider" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\sample_scene" />
@@ -243,12 +244,12 @@
      <Folder Include="Assets\TextMesh Pro\Resources\Style Sheets" />
      <Folder Include="Assets\TextMesh Pro\Fonts" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Knights\prefabs" />
+     <Folder Include="Assets\Homework 4\SaveLoad\Prefabs\Resources" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\models\Materials" />
      <Folder Include="Assets\Homework 3\Scripts\Zenject" />
      <Folder Include="Assets\Homework 2\Scenes" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <Folder Include="Assets\Homework 2\Scripts\Level" />
-     <Folder Include="Assets\Homework 4\SaveLoad\Scripts\SavableObjects" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Knights\models\Materials\Materials" />
      <Folder Include="Assets\Homework 4\SaveLoad\Scripts\PlayerResources" />
      <Folder Include="Assets\Homework 4\SaveLoad\Prefabs" />

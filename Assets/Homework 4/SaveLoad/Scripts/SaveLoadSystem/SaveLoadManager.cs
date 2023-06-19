@@ -2,16 +2,10 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
-public class SaveLoadManager : MonoBehaviour , IInitializable
+public class SaveLoadManager : MonoBehaviour
 {
     [Inject] private ISaveLoader[] saveLoaders;
-
     [Inject] private IGameRepository gameRepository;
-
-    public void Initialize()
-    {
-        Load();
-    }
 
     [Button(ButtonSizes.Large),GUIColor(0,1,0)]
     public void Save()

@@ -1625,7 +1625,6 @@ GameObject:
   m_Component:
   - component: {fileID: 460858}
   - component: {fileID: 9565070}
-  - component: {fileID: -8329458157301923894}
   - component: {fileID: -4575938584427664408}
   m_Layer: 0
   m_Name: WK_light_archer_B
@@ -1693,31 +1692,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-8329458157301923894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5261d7bf39194a1a8dc7265064f1611c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: guid
-      Entry: 2
-      Data: 00000000000000000000000000000000
-  PrefabID: 2
 --- !u!114 &-4575938584427664408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1733,6 +1707,7 @@ MonoBehaviour:
   hitPoints: 10
   speed: 7
   damage: 3
+  type: 0
 --- !u!1 &137818
 GameObject:
   m_ObjectHideFlags: 0

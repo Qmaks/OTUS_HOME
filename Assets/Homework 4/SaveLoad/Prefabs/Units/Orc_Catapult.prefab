@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 419652}
   - component: {fileID: 9572452}
-  - component: {fileID: -3209660108735841177}
   - component: {fileID: -3721693397922424699}
   m_Layer: 0
   m_Name: Orc_Catapult
@@ -56,31 +55,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-3209660108735841177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5261d7bf39194a1a8dc7265064f1611c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: guid
-      Entry: 2
-      Data: 00000000000000000000000000000000
-  PrefabID: 6
 --- !u!114 &-3721693397922424699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +70,7 @@ MonoBehaviour:
   hitPoints: 2
   speed: 1
   damage: 20
+  type: 4
 --- !u!1 &103566
 GameObject:
   m_ObjectHideFlags: 0

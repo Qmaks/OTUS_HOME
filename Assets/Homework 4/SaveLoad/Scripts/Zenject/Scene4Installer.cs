@@ -1,3 +1,4 @@
+using Homework_4.SaveLoad.Scripts.Encrypt;
 using Homework_4.SaveLoad.Scripts.SaveLoadSystem;
 using Homeworks.SaveLoad;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class Scene4Installer : MonoInstaller
         Container.Bind<PlayerResources>().FromComponentInHierarchy().AsSingle();
         Container.BindInterfacesAndSelfTo<ResourcesManager>().FromComponentInHierarchy().AsSingle();
         Container.BindInterfacesAndSelfTo<UnitsManager>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<IEncryptor>().To<Encryptor>().FromNew().AsSingle();
         
         //Repository...
         Container.BindInterfacesTo<GameRepository>().FromNew().AsSingle().NonLazy();

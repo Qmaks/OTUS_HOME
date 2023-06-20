@@ -86,10 +86,10 @@
      <Compile Include="Assets\Homework 2\Scripts\Zenject\EnemyInstaller.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemySpawner.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Input\InputManager.cs" />
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Encrypt\Encryptor.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Encrypt\Encryptor.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyAttackAgent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Level\LevelBackground.cs" />
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Encrypt\IEncryptor.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Encrypt\IEncryptor.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\LevelUpButton\LevelUpButtonPresenter.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\TeamComponent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Common\PhysicsLayer.cs" />
@@ -124,6 +124,8 @@
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerInfo\IPlayerInfoPresenter.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\ProgressBar.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStatsWidget.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Serializer\ISerializer.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Serializer\Serializer.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Homework 2\Scripts" />
      <Folder Include="Assets\AssetPacks\PolygonFantasyKingdom\Textures\Misc" />
@@ -171,6 +173,7 @@
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\animation\worker" />
      <Folder Include="Assets\AssetPacks\Tiles" />
      <Folder Include="Assets\Homework 4\SaveLoad" />
+     <Folder Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Serializer" />
      <Folder Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\models\extra models\weapons" />
      <Folder Include="Assets\AssetPacks\Tiles\Prefabs" />
@@ -289,7 +292,7 @@
      <Folder Include="Assets\AssetPacks\Toon_RTS\Knights\Toon_RTS\x_extras\model\extra_weapons" />
      <Folder Include="Assets\Homework 2\Scripts\Components" />
      <Folder Include="Assets\Homework 3\Fonts" />
-     <Folder Include="Assets\Homework 4\SaveLoad\Scripts\Encrypt" />
+     <Folder Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Encrypt" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\animation\boltthrower" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <Folder Include="Assets\TextMesh Pro\Documentation" />

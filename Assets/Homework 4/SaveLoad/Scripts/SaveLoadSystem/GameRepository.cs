@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using Homework_4.SaveLoad.Scripts.Encrypt;
+using Homework_4.SaveLoad.Scripts.SaveLoadSystem.Serializer;
 using Sirenix.Serialization;
 using UnityEngine;
 using Zenject;
@@ -9,9 +10,11 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 {
     public class GameRepository : IGameRepository
     {
+        [Inject] private IEncryptor encryptor;
+        [Inject] private ISerializer serializer;
+        
         private const string GAME_SAVE_FILE = "/SaveFile.crypt";
         private readonly DataFormat dataFormat = DataFormat.Binary;
-        [Inject] private IEncryptor encryptor;
         private Dictionary<string, object> gameState = new();
         
         public void LoadState()
@@ -20,7 +23,7 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
             {
                 var bytes = File.ReadAllBytes(GetSaveFilePath());
                 bytes = encryptor.Decrypt(bytes);
-                gameState = SerializationUtility.DeserializeValue<Dictionary<string,object>>(bytes, dataFormat);
+                gameState = serializer.Deserialize<Dictionary<string, object>>(bytes);
             }
             else
             {
@@ -30,7 +33,7 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 
         public void SaveState()
         {
-            var bytes = SerializationUtility.SerializeValue(gameState, dataFormat);
+            var bytes = serializer.Serialize(gameState);
             bytes = encryptor.Encrypt(bytes);
             File.WriteAllBytes(GetSaveFilePath(), bytes);
         }

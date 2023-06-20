@@ -1,5 +1,4 @@
-﻿
-namespace Homework_4.SaveLoad.Scripts.Encrypt
+﻿namespace Homework_4.SaveLoad.Scripts.Encrypt
 {
     public class Encryptor : IEncryptor
     {

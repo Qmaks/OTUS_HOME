@@ -10,11 +10,11 @@ namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem
 {
     public class GameRepository : IGameRepository
     {
+        private const string GAME_SAVE_FILE = "/SaveFile.crypt";
+        
         [Inject] private IEncryptor encryptor;
         [Inject] private ISerializer serializer;
-        
-        private const string GAME_SAVE_FILE = "/SaveFile.crypt";
-        private readonly DataFormat dataFormat = DataFormat.Binary;
+
         private Dictionary<string, object> gameState = new();
         
         public void LoadState()

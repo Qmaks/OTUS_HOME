@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization;
-
-namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem.Serializer
+﻿namespace Homework_4.SaveLoad.Scripts.SaveLoadSystem.Serializer
 {
     public interface ISerializer
     {

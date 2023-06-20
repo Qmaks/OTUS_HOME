@@ -1216,7 +1216,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 46634866539373052, guid: 513f7e548b1864e9191b993e98d583e7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 513f7e548b1864e9191b993e98d583e7, type: 3}
 --- !u!4 &1298357892 stripped
 Transform:
@@ -1589,7 +1590,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 46634866539373052, guid: 513f7e548b1864e9191b993e98d583e7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 513f7e548b1864e9191b993e98d583e7, type: 3}
 --- !u!4 &1738537724 stripped
 Transform:

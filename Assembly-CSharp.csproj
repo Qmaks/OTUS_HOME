@@ -58,6 +58,7 @@
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\SaveLoadManager.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyView.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Popup.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Serializer\ISerializer.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\MoveComponent.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerProgress\PlayerProgressPresenter.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletDestroyer.cs" />
@@ -120,12 +121,11 @@
      <Compile Include="Assets\Homework 2\Scripts\Zenject\SceneInstaller.cs" />
      <Compile Include="Assets\Homework 2\Scripts\GameManager\GameManager.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\IPlayerStatsPresenter.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Serializer\Serializer.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\PopupManager.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerInfo\IPlayerInfoPresenter.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\ProgressBar.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStatsWidget.cs" />
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Serializer\ISerializer.cs" />
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Serializer\Serializer.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Homework 2\Scripts" />
      <Folder Include="Assets\AssetPacks\PolygonFantasyKingdom\Textures\Misc" />

@@ -41,9 +41,17 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Zombie\ZombieModelCore.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\GameController.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\LevelUpButton\LevelUpButton.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\HeroModel.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\Component\HealthComponent.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\Controllers\ShootController.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Common\CoroutineRunner.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\WeaponComponent.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Bullet\BulletEntity.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts\ThrowingActionSMB.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\Move.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Model\CharacterInfo.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Utils\TransformData.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Utils\QuaternionS.cs" />
@@ -51,110 +59,167 @@
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitObjectData.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Utils\Vector3S.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletDamager.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Bullet\Components\PermanentMotionComponent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Character\CharacterDeathObserver.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Zenject\SceneInstaller.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\UI\Presenter\HpViewPresenter.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Level\LevelBoundSceneLinks.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Zombie\ZombieSpawner.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Custom\RepeatTimer.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\Controllers\LookAtController.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Zenject\Scene5Installer.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Bullet\Core\Core.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Zombie\ZombieDestroyer.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Character\CharacterMoveController.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\LookAt.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\SaveLoadManager.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Values\IAtomicVariable.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyView.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Popup.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowFireball.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Serializer\ISerializer.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Bullet\BulletFactory.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\MoveComponent.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerProgress\PlayerProgressPresenter.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts\IdleThrowTrick.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Actions\AtomicEvent.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Scripts\JumpScript.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletDestroyer.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\UI\View\FinishGameView.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\PlayerResources\ResourceType.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitsManager.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Bullet\Components\GetDamageComponent.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Resources\ResourceObjectData.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Scripts\MeleeWarriorLeftHandIK.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\SaveLoader.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\Bullet.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyMoveAgent.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts\ThrowProp.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowNova.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\PlayerPopup.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\PlayerResources\PlayerResourcesSaveLoader.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\Weapon.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitObject.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Bullet\BulletSpawner.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyPositions.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitFactory.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\Life.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Zenject\Scene4Installer.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Common\DeathComponent.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Zombie\MeleeDamager.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Resources\ResourcesObjectsSaveLoader.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\Component\ShootComponent.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Custom\CollisionObservable.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Bullet\Components\LookDirectionComponent.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStats.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\HeroModel_Core.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Custom\Timer.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Scripts\MeleeWarriorShieldRotator.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Character\CharacterFireController.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\LevelUpButton\ILevelUpButtonPresenter.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowHealing.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStatView.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Model\CharacterStat.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\HitPointsComponent.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\Controllers\SpawnPointsController.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerProgress\IPlayerProgressPresenter.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\Component\LookAtComponent.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Common\TakeDamageComponent.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Custom\LateUpdateMechanics.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Resources\ResourcesManager.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Generators\Generator.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Zombie\ZombieModel.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts\ThrowMultipleProps.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Zenject\EnemyInstaller.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemySpawner.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Bullet\Core\PermanentLinearMotion.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Input\InputManager.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Encrypt\Encryptor.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyAttackAgent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Level\LevelBackground.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\HeroEntity.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Encrypt\IEncryptor.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Bullet\Components\CollisionComponent.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\LevelUpButton\LevelUpButtonPresenter.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\TeamComponent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Common\PhysicsLayer.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Entity.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Bullet\Core\LookDirection.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletConfig.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Zombie\ZombieModelView.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\ISaveLoader.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\RetargetingExamples\Scripts\SoldierIK.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Level\LevelBounds.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\LevelUpButton\LevelUpButtonWidget.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\UI\View\TextView.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Archer Animations\Scripts\BowLoadScript.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Generators\GenerateBySeconds.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitType.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\Component\TransformComponent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletSpawner.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\Component\MoveComponent.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitsObjectSaveLoader.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\AddCastEffect.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowShockwave.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\PopupName.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Bullet\Components\LifeTimeComponent.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\IGameRepository.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts\ThrowBigAxe.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyDestroyer.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Model\PlayerLevel.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Actions\IAtomicAction.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\HeroModel_View.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts\ChangeSpear.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Values\AtomicVariable.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerProgress\PlayerProgressWidget.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Model\UserInfo.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\CastSpells.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitsPrefabDatabase.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStatsPresenter.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Zombie\ZombieEntity.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyShooter.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\GameRepository.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\Controllers\MoveController.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Bullet\BulletModel.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerInfo\PlayerInfoPresenter.cs" />
-     <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerInfo\PlayerInfoWidget.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Resources\ResourceObject.cs" />
+     <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerInfo\PlayerInfoWidget.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\Widget.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Actions\AtomicAction.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\UI\Presenter\BulletViewPresenter.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Zombie\IsNearTarget.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Zombie\ZombieFactory.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Bullet\BulletDestroyer.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Scripts\JumpScriptSMB.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Values\AtomicValue.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Hero\Component\AmmoComponent.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\UI\Presenter\KilledViewPresenter.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\PlayerResources\PlayerResources.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Values\IAtomicValue.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\RetargetingExamples\Scripts\SoldierIKSMB.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Model\TestRepository.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Zenject\SceneInstaller.cs" />
      <Compile Include="Assets\Homework 2\Scripts\GameManager\GameManager.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Zombie\Component\TargetComponent.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\IPlayerStatsPresenter.cs" />
-     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Serializer\Serializer.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\PopupManager.cs" />
+     <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Serializer\Serializer.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerInfo\IPlayerInfoPresenter.cs" />
+     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Scripts\VillagerHandsIK.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Custom\FixedUpdateMechanics.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\ProgressBar.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStatsWidget.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\RetargetingExamples\Scripts\SoldierIKSMB.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts\IdleThrowTrick.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts\ThrowMultipleProps.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\CastSpells.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Scripts\JumpScript.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Scripts\JumpScriptSMB.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\AddCastEffect.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowShockwave.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\RetargetingExamples\Scripts\SoldierIK.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Scripts\MeleeWarriorShieldRotator.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Scripts\VillagerHandsIK.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Scripts\MeleeWarriorLeftHandIK.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowFireball.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts\ThrowProp.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts\ThrowBigAxe.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowNova.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowHealing.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Archer Animations\Scripts\BowLoadScript.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts\ThrowingActionSMB.cs" />
-     <Compile Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts\ChangeSpear.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\AnimatorControllers\AssaultRifle" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\AnimatorControllers\1H" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Dance Animations Pack\AnimationControllers" />
      <Folder Include="Assets\Homework 2\Scripts" />
      <Folder Include="Assets\AssetPacks\PolygonFantasyKingdom\Textures\Misc" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Custom" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\prefabs\High_Elves" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <Folder Include="Assets\Homework 4\SaveLoad\Prefabs\Units" />
+     <Folder Include="Assets\Game\GameEngine" />
      <Folder Include="Assets\Homework 2\Scripts\Enemy\Agents" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Undead\models" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Undead\models\Materials\Colors" />
@@ -167,12 +232,14 @@
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Animations\Work\Mining" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Archer Animations" />
      <Folder Include="Assets\TextMesh Pro\Sprites" />
+     <Folder Include="Assets\Lessons\II.Gameplay\Common\Scripts" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Dance Animations Pack" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\models\Materials\Color" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Animations" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Materials" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Prefabs\Human Villager" />
      <Folder Include="Assets\AssetPacks\PolygonFantasyKingdom" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Values" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Knights" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\AnimatorControllers" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Knights\animation\archer" />
@@ -188,15 +255,20 @@
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\sample_scene\sample_animations" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Materials" />
      <Folder Include="Assets\Homework 2" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Materials" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Animations\Idle\Movement" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Undead\animation\spearman" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Orcs\models\Materials" />
+     <Folder Include="Assets\Modules" />
      <Folder Include="Assets\AssetPacks\PolygonBossZombies\Scenes" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Materials" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\Bullet\Components" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Knights\models\Materials\Colors\Materials" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Undead\animation\cavalry_mage" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\Hero\Component" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Animations\OneHanded\LeftHand" />
+     <Folder Include="Assets\Game\GameEngine\Animation\Animations" />
      <Folder Include="Assets\Homework 3\Prefabs" />
      <Folder Include="Assets\Homework 2\Scripts\Zenject" />
      <Folder Include="Assets\AssetPacks\PolygonKnights\Models" />
@@ -217,10 +289,12 @@
      <Folder Include="Assets\AssetPacks\Toon_RTS\Knights\models\Materials\Colors" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Models\Other" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\animation\worker" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\Zombie" />
      <Folder Include="Assets\AssetPacks\Tiles" />
      <Folder Include="Assets\Homework 4\SaveLoad" />
      <Folder Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Serializer" />
      <Folder Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Prefabs" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\models\extra models\weapons" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Textures" />
      <Folder Include="Assets\AssetPacks\Tiles\Prefabs" />
@@ -229,6 +303,7 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Knights\animation\cavalry" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\Common" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Orcs\animation\worker" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Animations\Rifle\Combat" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Knights\Toon_RTS\x_extras" />
@@ -244,8 +319,14 @@
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\animation\archer" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Animations\AssaultRifle\Idle" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Orcs\models\Single_Mesh" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\Bullet\Core" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\Bullet" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Prefabs\Spells\Shockwave" />
+     <Folder Include="Assets\Lessons\II.Gameplay\Common" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\UI\View" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Materials" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\Zenject" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Animations\Idle" />
      <Folder Include="Assets\Homework 2\Prefabs" />
      <Folder Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerProgress" />
@@ -255,6 +336,7 @@
      <Folder Include="Assets\AssetPacks\Toon_RTS\Knights\animation" />
      <Folder Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Models" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\UI\Presenter" />
      <Folder Include="Assets\Homework 3\Scripts\UI\Widgets" />
      <Folder Include="Assets\AssetPacks\PolygonBossZombies" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Models\Buildings" />
@@ -290,6 +372,7 @@
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Basic Motions\Materials" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Archer Animations\Models" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Animations\Handgun" />
+     <Folder Include="Assets\Game" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Orcs\models" />
      <Folder Include="Assets\Homework 4\SaveLoad\Scripts" />
      <Folder Include="Assets\Homework 2\Scripts\Enemy\Generators" />
@@ -298,6 +381,7 @@
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Basic Motions\Animations\Movement\Crouch" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Undead\animation\infantry" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\AnimatorControllers\Rifle" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\UI" />
      <Folder Include="Assets\Homework 4\SaveLoad\Scripts\Units" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Animations\Rifle\Movement" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Prefabs\Weapons" />
@@ -317,6 +401,7 @@
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Animations" />
      <Folder Include="Assets\Homework 4" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\RetargetingExamples\Models" />
+     <Folder Include="Assets\Lessons" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Scripts" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\prefabs\Wood_Elves" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
@@ -336,9 +421,11 @@
      <Folder Include="Assets\AssetPacks\Toon_RTS\Orcs\animation\wolf_rider_shaman" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Dance Animations Pack\Prefabs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+     <Folder Include="Assets\Homeworks 5" />
      <Folder Include="Assets\AssetPacks\PolygonKnights\Materials" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <Folder Include="Assets\AssetPacks\PolygonBossZombies\Prefabs\CharacterAttachments" />
+     <Folder Include="Assets\Game\GameEngine\Animation\Animators" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Prefabs\Spells\Nova" />
      <Folder Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerInfo" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Basic Motions\Prefabs" />
@@ -354,6 +441,7 @@
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Animations\OneHanded" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Basic Motions\Animations\Idles" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Basic Motions\Animations\Movement\Swim" />
+     <Folder Include="Assets\Game\GameEngine\Animation" />
      <Folder Include="Assets\Resources" />
      <Folder Include="Assets\AssetPacks\PolygonBossZombies\Models" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
@@ -376,12 +464,14 @@
      <Folder Include="Assets\Homework 3\Scripts\Zenject" />
      <Folder Include="Assets\Homework 2\Scenes" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Animations\Work\Fishing" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\Hero\Controllers" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\AnimatorControllers\2HLong" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Dance Animations Pack\Animations" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Dance Animations Pack\Textures" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Models" />
      <Folder Include="Assets\Homework 2\Scripts\Level" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\Zombie\Component" />
      <Folder Include="Assets\AssetPacks\PolygonBossZombies\Prefabs" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Knights\models\Materials\Materials" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Models\Characters" />
@@ -423,15 +513,18 @@
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Animations\TwoHandedLong" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Animations\TwoHandedLong\Movement" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Animations" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Actions" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Animations\AssaultRifle" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Archer Animations\Animations\Idle" />
      <Folder Include="Assets\AssetPacks\Tiles\Textures" />
      <None Include="Assets\AssetPacks\PolygonBossZombies\Shaders\POLYGON_ZombieBoss.shader" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\Atomic" />
      <Folder Include="Assets\Homework 3\Sprites" />
      <Folder Include="Assets\AssetPacks\PolygonBossZombies\Textures" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\animation\spearman" />
      <Folder Include="Assets\AssetPacks\PolygonBossZombies\Materials\Alts" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Orcs\models\Materials\color" />
+     <Folder Include="Assets\Lessons\II.Gameplay" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Animations\Movement" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Models" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Undead\animation\mage" />
@@ -454,6 +547,7 @@
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Prefabs" />
      <Folder Include="Assets\Homework 3\Fonts" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\Hero" />
      <Folder Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Encrypt" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Textures" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\AnimatorControllers" />
@@ -465,6 +559,7 @@
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Animations\Work" />
      <Folder Include="Assets\TextMesh Pro\Documentation" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Models\Weapons" />
+     <Folder Include="Assets\Homeworks 5\Shooter" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\models" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Prefabs" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts" />
@@ -1187,9 +1282,17 @@
       <Project>{b754e363-95f8-8a23-f3e1-83ac2b4fb6eb}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="UniTask.DOTween.csproj">
+      <Project>{f1de03fe-649c-bc7c-ee18-e2ed0a3d1a91}</Project>
+      <Name>UniTask.DOTween</Name>
+    </ProjectReference>
     <ProjectReference Include="Zenject-Editor.csproj">
       <Project>{3176843a-ee5f-2fcc-a515-b638ecf67278}</Project>
       <Name>Zenject-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.Linq.csproj">
+      <Project>{b21a227f-4415-518f-a2de-a35bf1261769}</Project>
+      <Name>UniTask.Linq</Name>
     </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
       <Project>{56eefc83-89e3-54a8-d951-f2ef5a2c52f1}</Project>
@@ -1199,6 +1302,10 @@
       <Project>{d0857af9-7615-cb66-6ab7-d97861852e28}</Project>
       <Name>Zenject-PoolMonitor-Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="UniTask.TextMeshPro.csproj">
+      <Project>{ad6cb789-9080-e8f5-63dc-d0a409990f79}</Project>
+      <Name>UniTask.TextMeshPro</Name>
+    </ProjectReference>
     <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
       <Project>{3a12d57b-8e10-a6fb-5ca4-790eeb1caa26}</Project>
       <Name>Zenject-ReflectionBaking-Editor</Name>
@@ -1206,6 +1313,18 @@
     <ProjectReference Include="Zenject.csproj">
       <Project>{8cbd42fe-3d99-ce5f-18e0-b41bdb5ebf81}</Project>
       <Name>Zenject</Name>
+    </ProjectReference>
+    <ProjectReference Include="Declarative.csproj">
+      <Project>{11b1e126-1794-03d4-1194-e6a558b7cb72}</Project>
+      <Name>Declarative</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.csproj">
+      <Project>{d15d4d55-5a99-1ac1-fcb9-f32e793dc56c}</Project>
+      <Name>UniTask</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniTask.Addressables.csproj">
+      <Project>{f8afeffd-b766-5067-93ef-ca92642e2f91}</Project>
+      <Name>UniTask.Addressables</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

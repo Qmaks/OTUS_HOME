@@ -6,9 +6,8 @@ using UnityEngine;
 
 namespace Homeworks_5.Shooter.Scripts
 {
-    //TODO : Разделить на 2 компонента
     [Serializable]
-    public sealed class Weapon
+    public sealed class WeaponSection
     {
         [ShowInInspector]
         public AtomicEvent TryShoot = new ();
@@ -17,7 +16,7 @@ namespace Homeworks_5.Shooter.Scripts
         public AtomicEvent OnShooted = new ();
 
         [SerializeField]
-        public Timer shootCooldown = new();
+        public TimerMechanics shootCooldown = new();
 
         [SerializeField]
         public AtomicVariable<int> currentBullet = new();
@@ -26,8 +25,10 @@ namespace Homeworks_5.Shooter.Scripts
         public AtomicVariable<int> maxBullet = new();
 
         [SerializeField]
-        public RepeatTimer restoreBulletTimer = new();
+        public RepeatTimerMechanics restoreBulletTimer = new();
 
+        [SerializeField] public MonoBehaviour coroutineRunner;
+        
         [Construct]
         public void Construct()
         {
@@ -45,7 +46,7 @@ namespace Homeworks_5.Shooter.Scripts
                 if ((!shootCooldown.IsPlaying) && (currentBullet.Value > 0))
                 {
                     currentBullet.Value--;
-                    shootCooldown.Play();
+                    coroutineRunner.StartCoroutine(shootCooldown.Play());
                     OnShooted?.Invoke();
                 }
             };

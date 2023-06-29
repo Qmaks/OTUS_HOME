@@ -18,19 +18,19 @@ namespace Homeworks_5.Shooter.Scripts.Zombie
         [Construct]
         public void Construct(ZombieModelCore core)
         {
-            core.damager.attackTimer.OnStartPlay += () =>
+            core.damageSection.attackTimer.OnStartPlay += () =>
             {
                 animator.SetInteger(State, ATTACK_STATE);
             };
             
             core.IsNearTarget.value.OnChanged += (value) =>
             {
-                if ((value)&&(!core.damager.attackTimer.IsPlaying))
+                if ((value)&&(!core.damageSection.attackTimer.IsPlaying))
                 {
                     animator.SetInteger(State, IDLE_STATE);
                 }
                 
-                if ((!value)&&(!core.damager.attackTimer.IsPlaying))
+                if ((!value)&&(!core.damageSection.attackTimer.IsPlaying))
                 {
                     animator.SetInteger(State, MOVE_STATE);
                 }

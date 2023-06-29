@@ -8,13 +8,13 @@ using UnityEngine.Serialization;
 namespace Homeworks_5.Shooter.Scripts.Zombie
 {
     [Serializable]
-    public class MeleeDamager
+    public class MeleeDamageSection
     {
         [SerializeField] 
-        public Entity entity;
+        public MonoBehaviour coroutineRunner;
         
         [FormerlySerializedAs("delay")] [SerializeField]
-        public Timer attackTimer;
+        public TimerMechanics attackTimer;
 
         public AtomicVariable<int> damage;
 
@@ -27,7 +27,7 @@ namespace Homeworks_5.Shooter.Scripts.Zombie
             {
                 if (!attackTimer.IsPlaying)
                 {
-                    entity.StartCoroutine(attackTimer.Play());
+                    coroutineRunner.StartCoroutine(attackTimer.Play());
                 }
             };
         }

@@ -12,12 +12,13 @@ public class LookAtController : ITickable
     public void Tick()
     {
         var lookAtComponent = hero.Get<ILookAtComponent>();
+        var heroPosition = hero.Get<IPositionComponent>().Position;
         
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out var hitInfo, Mathf.Infinity, groundMask))
         {
-            lookAtComponent.LookAt(new Vector3(hitInfo.point.x, hero.transform.position.y, hitInfo.point.z));
+            lookAtComponent.LookAt(new Vector3(hitInfo.point.x, heroPosition.y, hitInfo.point.z));
         }
     }
 }

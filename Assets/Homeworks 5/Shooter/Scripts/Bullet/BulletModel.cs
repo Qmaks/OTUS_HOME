@@ -7,11 +7,4 @@ public class BulletModel : DeclarativeModel
     [Section]
     [SerializeField]
     public BulletModel_Core core = new();
-    
-    
-    [Construct]
-    public void Construct()
-    {
-        StartCoroutine(core.lifeTimer.Play());
-    }
 }

@@ -1976,12 +1976,12 @@ MonoBehaviour:
   core:
     target:
       value: {fileID: 0}
-    life:
+    lifeSection:
       hitPoints:
         value: 1
       isDeath:
         value: 0
-    move:
+    moveSection:
       moveTransform: {fileID: 4376485179048344}
       moveRequired:
         value: 0
@@ -1989,10 +1989,10 @@ MonoBehaviour:
         value: {x: 0, y: 0, z: 0}
       speed:
         value: 0
-    damager:
-      entity: {fileID: 2921164343067396563}
-      delay:
-        <Duration>k__BackingField: 2
+    damageSection:
+      coroutineRunner: {fileID: 1823210119260245902}
+      attackTimer:
+        <Duration>k__BackingField: 1
       damage:
         value: 1
     IsNearTarget:

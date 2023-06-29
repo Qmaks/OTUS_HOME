@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Homeworks_5.Shooter.Scripts
 {
     [Serializable]
-    public class LookAt
+    public class LookAtMechanic
     {
         [SerializeField]
         public Transform lookTransform;
@@ -16,7 +16,6 @@ namespace Homeworks_5.Shooter.Scripts
         
         private readonly FixedUpdateMechanics fixedUpdate = new();
 
-        [Construct]
         public void Construct()
         {
             fixedUpdate.Do(deltaTime =>

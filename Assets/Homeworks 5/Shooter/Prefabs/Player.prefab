@@ -1924,12 +1924,13 @@ MonoBehaviour:
         value: 10
       restoreBulletTimer:
         <Duration>k__BackingField: 2
-    life:
+      coroutineRunner: {fileID: 1641759823650818124}
+    lifeSection:
       hitPoints:
         value: 20
       isDeath:
         value: 0
-    move:
+    moveSection:
       moveTransform: {fileID: 2810283634778340483}
       moveRequired:
         value: 0

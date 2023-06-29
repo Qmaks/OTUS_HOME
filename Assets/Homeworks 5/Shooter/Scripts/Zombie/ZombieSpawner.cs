@@ -1,5 +1,6 @@
 using System;
 using Homeworks_5.Shooter.Scripts;
+using Homeworks_5.Shooter.Scripts.Component;
 using Homeworks_5.Shooter.Scripts.Zombie;
 using Homeworks_5.Shooter.Scripts.Zombie.Component;
 using Lessons.Gameplay;
@@ -13,7 +14,7 @@ public class ZombieSpawner : IInitializable
     [Inject] private SpawnPointsController spawnPointsController;
     [Inject] private ZombieFactory factory;
 
-    private RepeatTimer repeatTimer = new();
+    private RepeatTimerMechanics repeatTimer = new();
 
     public void Initialize()
     {
@@ -26,7 +27,7 @@ public class ZombieSpawner : IInitializable
     {
         var point = spawnPointsController.GetRandomSpawnPoint();
         var zombie = factory.Create();
-        zombie.transform.position = point.position;
+        zombie.Get<IPositionComponent>().Position = point.position;
         zombie.Get<ITargetComponent>().SetTarget(heroEntity);
         
         OnZombieSpawn?.Invoke(zombie);

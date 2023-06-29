@@ -3,12 +3,15 @@ using Declarative;
 using Homeworks_5.Shooter.Scripts.Atomic;
 using Lessons.Gameplay;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Homeworks_5.Shooter.Scripts.Bullet.Core
 {
     [Serializable]
     public class BulletModel_Core
     {
+        [SerializeField] public MonoBehaviour coroutineRunner;
+        
         [SerializeField]
         public AtomicVariable<int> damage = new();
         
@@ -21,11 +24,12 @@ namespace Homeworks_5.Shooter.Scripts.Bullet.Core
         public LookDirection look = new();
 
         [SerializeField] 
-        public Timer lifeTimer = new();
+        public TimerMechanics lifeTimer = new();
 
+        [FormerlySerializedAs("life")]
         [Section]
         [SerializeField]
-        public Life life = new();
+        public LifeSection lifeSection = new();
         
         [SerializeField]
         public CollisionObservable collisionObservable;
@@ -33,11 +37,16 @@ namespace Homeworks_5.Shooter.Scripts.Bullet.Core
         [Construct]
         public void Construct()
         {
-            lifeTimer.Play();
-
+            coroutineRunner.StartCoroutine(lifeTimer.Play());
+            
             collisionObservable.OnEntered += (collision) =>
             {
-                life.onTakeDamage.Invoke(life.hitPoints.Value);
+                //----------------------------------------------------------------------------------------------------
+                // DeathComponent используется как тригер для BulletDestroer
+                // Вообще LifeSection решил использовать для пуль, потому что тогда возможна механика
+                // прохождение пули через несколько обьктов, при сталкновении с каждым вычиталась бы 1 единица жизни )
+                lifeSection.isDeath.Value = true;
+                //----------------------------------------------------------------------------------------------------
 
                 var otherEntity = collision.gameObject.GetComponent<Entity>();
                 if (otherEntity)

@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Homeworks_5.Shooter.Scripts
 {
     [Serializable]
-    public sealed class Life
+    public sealed class LifeSection
     {
         [ShowInInspector]
         public AtomicEvent<int> onTakeDamage = new();

@@ -6,7 +6,7 @@ namespace Homeworks_5.Shooter.Scripts.Component
     interface IShootComponent
     {
         event Action OnShooted;
-        void Shoot();
+        void TryShoot();
     }
     
     public class ShootComponent : IShootComponent
@@ -20,7 +20,7 @@ namespace Homeworks_5.Shooter.Scripts.Component
             onShooted += () => OnShooted?.Invoke();
         }
         
-        public void Shoot()
+        public void TryShoot()
         {
             shoot.Invoke();
         }

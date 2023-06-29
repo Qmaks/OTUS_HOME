@@ -23,14 +23,16 @@ namespace Homeworks_5.Shooter.Scripts
 
         private void Shoot()
         {
-            bulletSpawner.Spawn();
+            var position = heroEntity.Get<IGetShootPosition>().GetShootPosition();
+            var direction = heroEntity.Get<IGetForwardComponent>().Forward;
+            bulletSpawner.Spawn(position,direction);
         }
 
         public void Tick()
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                heroEntity.Get<IShootComponent>().Shoot();
+                heroEntity.Get<IShootComponent>().TryShoot();
             }
         }
     }

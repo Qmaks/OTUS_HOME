@@ -8,18 +8,19 @@ namespace Homeworks_5.Shooter.Scripts
 {
     public class HeroEntity : Entity
     {
-        [SerializeField] public HeroModel model;
+        [SerializeField] private HeroModel model;
 
         private void Awake()
         {
             Add(new TransformComponent(transform));
-            Add(new MoveComponent(model.core.move.onMove));
+            Add(new ShootPositionComponent(model.view.shootingPoint.Value));
+            Add(new MoveComponent(model.core.moveSection.onMove));
             Add(new LookAtComponent(model.core.lookAt.lookAt));
             Add(new ShootComponent(model.core.weapon.TryShoot,model.core.weapon.OnShooted));
             Add(new AmmoComponent(model.core.weapon.currentBullet,model.core.weapon.maxBullet));
-            Add(new HealthComponent(model.core.life.hitPoints));
-            Add(new DeathComponent(this,model.core.life.isDeath));
-            Add(new TakeDamageComponent(model.core.life.onTakeDamage));
+            Add(new HealthComponent(model.core.lifeSection.hitPoints));
+            Add(new DeathComponent(this,model.core.lifeSection.isDeath));
+            Add(new TakeDamageComponent(model.core.lifeSection.onTakeDamage));
         }
     }
 }

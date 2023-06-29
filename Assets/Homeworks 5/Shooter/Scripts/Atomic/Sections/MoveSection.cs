@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Homeworks_5.Shooter.Scripts
 {
     [Serializable]
-    public sealed class Move
+    public sealed class MoveSection
     {
         [SerializeField]
         public Transform moveTransform;
@@ -27,9 +27,9 @@ namespace Homeworks_5.Shooter.Scripts
         private readonly FixedUpdateMechanics fixedUpdate = new();
 
         [Construct]
-        public void Construct(Life life)
+        public void Construct(LifeSection lifeSection)
         {
-            var isDeath = life.isDeath;
+            var isDeath = lifeSection.isDeath;
             onMove += direction =>
             {
                 if (isDeath.Value)

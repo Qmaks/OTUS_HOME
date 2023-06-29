@@ -10,19 +10,24 @@ namespace Homeworks_5.Shooter.Scripts
     {
         [Section]
         [SerializeField]
-        public Weapon weapon = new();
+        public WeaponSection weapon = new();
         
         [Section]
         [SerializeField]
-        public Life life = new();
+        public LifeSection lifeSection = new();
 
         [Section]
         [SerializeField]
-        public Move move = new();
+        public MoveSection moveSection = new();
         
-        [FormerlySerializedAs("look")]
         [Section]
         [SerializeField]
-        public LookAt lookAt = new();
+        public LookAtMechanic lookAt = new();
+
+        [Construct]
+        void Construct()
+        {
+            lookAt.Construct();
+        }
     }
 }

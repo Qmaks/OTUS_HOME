@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Homeworks_5.Shooter.Scripts.Zombie
 {
     [Serializable]
-    public class IsNearTarget : IFixedUpdateListener
+    public class IsNearTargetMechanics : IFixedUpdateListener
     {
         public AtomicVariable<bool> value = new();
         
@@ -17,15 +17,15 @@ namespace Homeworks_5.Shooter.Scripts.Zombie
 
         private const float DELTA = 2f;
 
-        [Construct]
-        void Construct(ZombieModelCore core)
+        public void Construct(Transform transform,AtomicVariable<Entity> target)
         {
-            target = core.target;
+            this.myTransform = transform;
+            this.target = target;
         }
         
         public void FixedUpdate(float deltaTime)
         {
-            var targetPos = target.Value.Get<IGetPositionComponent>().Position;
+            var targetPos = target.Value.Get<IPositionComponent>().Position;
             if ((targetPos - myTransform.position).magnitude < DELTA)
             {
                 value.Value = true;

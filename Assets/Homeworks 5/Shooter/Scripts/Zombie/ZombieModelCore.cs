@@ -4,6 +4,7 @@ using Homeworks_5.Shooter.Scripts.Atomic;
 using Homeworks_5.Shooter.Scripts.Component;
 using Lessons.Gameplay;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Homeworks_5.Shooter.Scripts.Zombie
 {
@@ -12,19 +13,21 @@ namespace Homeworks_5.Shooter.Scripts.Zombie
     {
         [SerializeField] public AtomicVariable<Entity> target;
 
-        [Section] [SerializeField] public Life life = new();
+        [Section] [SerializeField] public LifeSection lifeSection = new();
 
-        [Section] [SerializeField] public Move move = new();
+        [Section] [SerializeField] public MoveSection moveSection = new();
 
-        [Section] [SerializeField] public MeleeDamager damager = new();
+        [Section] [SerializeField] public MeleeDamageSection damageSection = new();
 
-        [Section] [SerializeField] public IsNearTarget IsNearTarget = new();
+        [Section] [SerializeField] public IsNearTargetMechanics IsNearTarget = new();
 
         private readonly FixedUpdateMechanics fixedUpdate = new();
 
         [Construct]
         public void Construct()
         {
+           IsNearTarget.Construct(moveSection.moveTransform,target);
+            
             fixedUpdate.Do(deltaTime =>
             {
                 Run();
@@ -36,25 +39,25 @@ namespace Homeworks_5.Shooter.Scripts.Zombie
 
         private void Run()
         {
-            var targetPosition = target.Value.Get<IGetPositionComponent>().Position;
-            var myPosition = move.moveTransform.position;
-            move.moveTransform.LookAt(targetPosition);
-            move.onMove.Invoke((targetPosition - myPosition).normalized);
+            var targetPosition = target.Value.Get<IPositionComponent>().Position;
+            var myPosition = moveSection.moveTransform.position;
+            moveSection.moveTransform.LookAt(targetPosition);
+            moveSection.onMove.Invoke((targetPosition - myPosition).normalized);
         }
 
         private void SendDamage()
         {
-            damager.attackTimer.OnStartPlay += () =>
+            damageSection.attackTimer.OnStartPlay += () =>
             {
-                target.Value.Get<ITakeDamageComponent>().ReceiveDamage(damager.damage.Value);
+                target.Value.Get<ITakeDamageComponent>().ReceiveDamage(damageSection.damage.Value);
             };
         }
 
         private void Attack()
         {
-            if ((IsNearTarget.value.Value) && (!damager.attackTimer.IsPlaying))
+            if ((IsNearTarget.value.Value) && (!damageSection.attackTimer.IsPlaying))
             {
-                damager.OnAttack.Invoke();
+                damageSection.OnAttack.Invoke();
             }
         }
     }

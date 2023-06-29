@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initOnAwake: 1
   core:
+    coroutineRunner: {fileID: 2374741492254802842}
     damage:
       value: 1
     move:
@@ -65,7 +66,7 @@ MonoBehaviour:
         value: {x: 0, y: 0, z: 0}
     lifeTimer:
       <Duration>k__BackingField: 3
-    life:
+    lifeSection:
       hitPoints:
         value: 1
       isDeath:

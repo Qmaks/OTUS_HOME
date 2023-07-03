@@ -1856,6 +1856,7 @@ GameObject:
   - component: {fileID: 2810283634787390239}
   - component: {fileID: 1641759823650818124}
   - component: {fileID: 1641759823650818126}
+  - component: {fileID: 8823660395780369055}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1942,6 +1943,10 @@ MonoBehaviour:
       stateMachine:
         currentStateType: 0
   view:
+    animatorMachine:
+      currentStateType: 0
+      animator: {fileID: 2810283634787390239}
+      dispatcher: {fileID: 8823660395780369055}
     shootingPoint:
       value: {fileID: 1136098634747892112}
 --- !u!114 &1641759823650818126
@@ -1957,6 +1962,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 1641759823650818124}
+--- !u!114 &8823660395780369055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2810283634778038627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d41598d5b304a058f91a22775afcad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2810283634778038629
 GameObject:
   m_ObjectHideFlags: 0

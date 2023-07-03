@@ -230,6 +230,9 @@
      <Compile Include="Assets\Homework 3\Scripts\UI\ProgressBar.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStatsWidget.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\MoveState.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\AnimatorStateMachine\AnimatorStateMachine.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\AnimatorStateMachine\AnimatorDispatcher.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\AnimatorStateType.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\AnimatorControllers\AssaultRifle" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\AnimatorControllers\1H" />
@@ -492,6 +495,7 @@
      <Folder Include="Assets\Homework 2\Scripts\Level" />
      <Folder Include="Assets\AssetPacks\PolygonBossZombies\Prefabs" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Knights\models\Materials\Materials" />
+     <Folder Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\AnimatorStateMachine" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Models\Characters" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Models" />
      <Folder Include="Assets\Homework 4\SaveLoad\Scripts\PlayerResources" />

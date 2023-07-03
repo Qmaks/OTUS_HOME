@@ -8,6 +8,8 @@ namespace Declarative
     {
         private Dictionary<Type, object> sections;
 
+        public Action onStart;
+        
         private MonoContext monoContext;
         
         [SerializeField]
@@ -37,6 +39,8 @@ namespace Declarative
 
         private void Awake()
         {
+            this.onStart = null;
+
             if (this.initOnAwake)
             {
                 this.Initialize();
@@ -53,6 +57,7 @@ namespace Declarative
         private void Start()
         {
             this.monoContext.Start();
+            this.onStart?.Invoke();
         }
 
         private void FixedUpdate()

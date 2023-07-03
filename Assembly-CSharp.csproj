@@ -210,6 +210,20 @@
      <Compile Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Mechanics\FixedUpdateMechanics.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\ProgressBar.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStatsWidget.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\StateMachines\States\RunState.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\StateMachines\StateMachine.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\StateMachines\States\DeadState.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\StateMachines\States\DelegateState.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\StateMachines\TransitionableStateMachine.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\StateMachines\States\CompositeState.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\StateMachines\States\IState.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\StateMachines\States\GatherCompositeState.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\StateMachines\States\GatheringDistanceState.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\StateMachines\States\GatheringTimerState.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\StateMachines\States\CharacterStateType.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\StateMachines\States\IdleState.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\StateMachines\States\UpdateState.cs" />
+     <Compile Include="Assets\Homeworks 5\Shooter\Scripts\StateMachines\States\MoveState.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\AnimatorControllers\AssaultRifle" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\AnimatorControllers\1H" />
@@ -219,6 +233,7 @@
      <Folder Include="Assets\Homeworks 5\Shooter\Scripts\Atomic\Mechanics" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\prefabs\High_Elves" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+     <Folder Include="Assets\Lessons\II.Gameplay\Lesson15_CharacterStates" />
      <Folder Include="Assets\Homework 4\SaveLoad\Prefabs\Units" />
      <Folder Include="Assets\Game\GameEngine" />
      <Folder Include="Assets\Homework 2\Scripts\Enemy\Agents" />
@@ -229,6 +244,7 @@
      <Folder Include="Assets\Homework 4\SaveLoad\Scripts\Zenject" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <Folder Include="Assets\Homework 2\Resources\Configs" />
+     <Folder Include="Assets\Lessons" />
      <Folder Include="Assets\AssetPacks\Toon_RTS" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Animations\Work\Mining" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Archer Animations" />
@@ -306,6 +322,7 @@
      <Folder Include="Assets\AssetPacks\Toon_RTS\Orcs\animation\worker" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Animations\Rifle\Combat" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Knights\Toon_RTS\x_extras" />
+     <Folder Include="Assets\Lessons\II.Gameplay" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Models\Props" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Undead\models\extra_models" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\AnimatorControllers" />
@@ -328,6 +345,7 @@
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Animations\Idle" />
      <Folder Include="Assets\Homework 2\Prefabs" />
      <Folder Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerProgress" />
+     <Folder Include="Assets\Homeworks 6" />
      <Folder Include="Assets\AssetPacks\PolygonBossZombies\Prefabs\Props" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\AnimatorControllers\2H" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Prefabs\Spells\Healing" />
@@ -405,6 +423,7 @@
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Animations\OneHanded\Shield" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\StateMachines" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Undead\models\single_mesh" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Elves\prefabs" />
@@ -451,6 +470,7 @@
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Prefabs\Props" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Archer Animations\Animations\Combat" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Animations\Handgun\Movement" />
+     <Folder Include="Assets\Lessons\II.Gameplay\Lesson15_CharacterStates\Scripts" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Animations\OneHanded\Movement" />
      <Folder Include="Assets\TextMesh Pro\Resources\Style Sheets" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Archer Animations\Scripts" />
@@ -568,6 +588,7 @@
      <Folder Include="Assets\AssetPacks\Toon_RTS\Knights\models\Materials\textures" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Animations\Rifle" />
      <Folder Include="Assets\AssetPacks\Toon_RTS\Undead\prefabs" />
+     <Folder Include="Assets\Homeworks 5\Shooter\Scripts\StateMachines\States" />
      <Folder Include="Assets\AssetPacks\PolygonFantasyKingdom\Models" />
      <Folder Include="Assets\Homework 3\Scripts\UI" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Archer Animations\Animations" />

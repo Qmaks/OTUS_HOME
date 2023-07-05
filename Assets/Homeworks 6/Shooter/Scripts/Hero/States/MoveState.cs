@@ -1,6 +1,7 @@
 ﻿using System;
 using Declarative;
 using Homeworks_5.Shooter.Scripts.Atomic.Mechanics;
+using Homeworks_6.Shooter.Scripts.Atomic.Mechanics;
 using Lessons.Gameplay;
 using Lessons.StateMachines.States;
 using UnityEngine;
@@ -13,10 +14,14 @@ namespace Homeworks_5.Shooter.Scripts
         private MovementDirectionVariable _movementDirection;
         private MoveInDirectionMechanic _moveInDirectionEngine;
         private RotateInDirectionMechanic _rotateInDirectionEngine;
-        
-        public void Construct(MovementDirectionVariable movementDirection, MoveInDirectionMechanic moveInDirectionEngine,
-            RotateInDirectionMechanic rotateInDirectionEngine)
+        private NearestTargetSensor<ZombieEntity> _nearestZombieSensor;
+
+        public void Construct(MovementDirectionVariable movementDirection,
+            MoveInDirectionMechanic moveInDirectionEngine,
+            RotateInDirectionMechanic rotateInDirectionEngine,
+            NearestTargetSensor<ZombieEntity> nearestZombieSensor)
         {
+            _nearestZombieSensor = nearestZombieSensor;
             _movementDirection = movementDirection;
             _moveInDirectionEngine = moveInDirectionEngine;
             _rotateInDirectionEngine = rotateInDirectionEngine;
@@ -24,6 +29,7 @@ namespace Homeworks_5.Shooter.Scripts
         
         void IState.Enter()
         {
+            _nearestZombieSensor.Active = false;
             _movementDirection.OnChanged += SetDirection;
             SetDirection(_movementDirection);
         }

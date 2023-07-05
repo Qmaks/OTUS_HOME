@@ -60,6 +60,7 @@ public class Scene5Installer : MonoInstaller
         Container.Bind<HeroEntity>().FromComponentInNewPrefab(playerPrefab).AsSingle().NonLazy();
         
         Container.BindInterfacesTo<MoveController>().FromNew().AsSingle().NonLazy();
+        Container.BindInterfacesTo<ShootController>().FromNew().AsSingle().NonLazy();
     }
 
     private void BindScene()

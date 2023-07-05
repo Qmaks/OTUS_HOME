@@ -1953,7 +1953,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 2314bcb07db64441a11f3b48e3eb97b4, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1984,7 +1984,7 @@ MonoBehaviour:
     moveSection:
       transform: {fileID: 4376485179048344}
       movementSpeed:
-        value: 6
+        value: 0
       rotationSpeed:
         value: 10
       movementDirection:

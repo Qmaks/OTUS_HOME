@@ -37,6 +37,9 @@ namespace Homeworks_5.Shooter.Scripts
             this.animatorMachine.AddTransition(AnimatorStateType.Run,
                 () => coreFSM.CurrentState == CharacterStateType.Run);
 
+            this.animatorMachine.AddTransition(AnimatorStateType.Shoot,
+                () => coreFSM.CurrentState == CharacterStateType.Shoot);
+            
             this.animatorMachine.AddTransition(AnimatorStateType.Dead,
                 () => coreFSM.CurrentState == CharacterStateType.Dead);
         }

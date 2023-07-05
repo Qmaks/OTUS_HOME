@@ -11,6 +11,8 @@ namespace Lessons.Gameplay
         {
             this.action = action;
         }
+
+        public void ClearAction() => action = null;
         
         void ILateUpdateListener.LateUpdate(float deltaTime)
         {

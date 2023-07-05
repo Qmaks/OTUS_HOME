@@ -14,8 +14,8 @@ namespace Homeworks_5.Shooter.Scripts
             Add(new TransformComponent(transform));
             Add(new ShootPositionComponent(model.view.shootingPoint.Value));
             Add(new MoveInDirectionComponent(model.core.moveSection.movementDirection));
-            Add(new ShootComponent(model.core.weapon.TryShoot,model.core.weapon.OnShooted));
-            Add(new AmmoComponent(model.core.weapon.currentBullet,model.core.weapon.maxBullet));
+            Add(new ShootComponent(model.core.shootSection.TryShoot,model.core.shootSection.OnShooted));
+            Add(new AmmoComponent(model.core.shootSection.currentBullet,model.core.shootSection.maxBullet));
             Add(new HealthComponent(model.core.lifeSection.hitPoints));
             Add(new DeathComponent(this,model.core.lifeSection.isDeath));
             Add(new TakeDamageComponent(model.core.lifeSection.onTakeDamage));

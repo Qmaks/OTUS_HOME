@@ -1916,7 +1916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initOnAwake: 1
   core:
-    weapon:
+    shootSection:
       shootCooldown:
         <Duration>k__BackingField: 1
       currentBullet:
@@ -1925,6 +1925,10 @@ MonoBehaviour:
         value: 10
       restoreBulletTimer:
         <Duration>k__BackingField: 2
+      nearestZombieSensor:
+        Target:
+          value: {fileID: 0}
+        transform: {fileID: 2810283634778340483}
       coroutineRunner: {fileID: 1641759823650818124}
     lifeSection:
       hitPoints:

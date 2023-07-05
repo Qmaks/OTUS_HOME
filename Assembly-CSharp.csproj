@@ -41,7 +41,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\States\RunState.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\ZombieModelCore.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\GameController.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\LevelUpButton\LevelUpButton.cs" />
@@ -61,6 +60,7 @@
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\Component\ShootPositionComponent.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Utils\Vector3S.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletDamager.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\States\AnimatorStateType.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Components\PermanentMotionComponent.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Character\CharacterDeathObserver.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Zenject\SceneInstaller.cs" />
@@ -68,7 +68,8 @@
      <Compile Include="Assets\Homework 2\Scripts\Level\LevelBoundSceneLinks.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\ZombieSpawner.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Mechanics\RepeatTimerMechanics.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\Controllers\LookAtController.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\AnimatorStateMachine\AnimatorStateMachine.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\States\MoveState.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zenject\Scene5Installer.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Bullet\Core\BulletModel_Core.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\ZombieDestroyer.cs" />
@@ -78,7 +79,6 @@
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Values\IAtomicVariable.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Mechanics\RotateInDirectionMechanic.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyView.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\States\GatheringDistanceState.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Popup.cs" />
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowFireball.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\Serializer\ISerializer.cs" />
@@ -97,14 +97,13 @@
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Resources\ResourceObjectData.cs" />
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Scripts\MeleeWarriorLeftHandIK.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\SaveLoader.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\States\GatheringTimerState.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\Bullet.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyMoveAgent.cs" />
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts\ThrowProp.cs" />
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowNova.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\PlayerPopup.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\PlayerResources\PlayerResourcesSaveLoader.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\WeaponSection.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\ShootSection.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitObject.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Bullet\BulletSpawner.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyPositions.cs" />
@@ -115,14 +114,14 @@
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Sections\MeleeDamageSection.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Resources\ResourcesObjectsSaveLoader.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\Component\ShootComponent.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\States\CharacterStateType.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\ShootState.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\States\MoveState.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\States\CharacterStateType.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\States\ShootState.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Mono\CollisionObservable.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Components\LookDirectionComponent.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStats.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\HeroModel_Core.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Mechanics\TimerMechanics.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Mechanics\NearestTargetSensor.cs" />
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Scripts\MeleeWarriorShieldRotator.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Character\CharacterFireController.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Values\MovementDirectionVariable.cs" />
@@ -132,6 +131,7 @@
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStatView.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Model\CharacterStat.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\HitPointsComponent.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\AnimatorStateMachine\AnimatorDispatcher.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\Controllers\SpawnPointsController.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerProgress\IPlayerProgressPresenter.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Components\LookAtComponent.cs" />
@@ -173,12 +173,11 @@
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Components\MoveInDirectionComponent.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitsObjectSaveLoader.cs" />
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\AddCastEffect.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\States\GatherCompositeState.cs" />
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowShockwave.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\PopupName.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Components\LifeTimeComponent.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\IGameRepository.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\States\DeadState.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\States\DeadState.cs" />
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts\ThrowBigAxe.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyDestroyer.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Model\PlayerLevel.cs" />
@@ -194,7 +193,7 @@
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\HeroStates.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\ZombieEntity.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStatsPresenter.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\States\IdleState.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\States\IdleState.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyShooter.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\GameRepository.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\Controllers\MoveController.cs" />
@@ -229,10 +228,6 @@
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Mechanics\FixedUpdateMechanics.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\ProgressBar.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStatsWidget.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\MoveState.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\AnimatorStateMachine\AnimatorStateMachine.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\AnimatorStateMachine\AnimatorDispatcher.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\AnimatorStateType.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\AnimatorControllers\AssaultRifle" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\AnimatorControllers\1H" />
@@ -487,6 +482,7 @@
      <Folder Include="Assets\Homework 2\Scenes" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Villager Animations\Animations\Work\Fishing" />
      <Folder Include="Assets\Homeworks 6\Shooter\Scripts\Hero\Controllers" />
+     <Folder Include="Assets\Homeworks 6\Shooter\Scripts\Hero\States" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\AnimatorControllers\2HLong" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Dance Animations Pack\Animations" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />

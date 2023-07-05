@@ -20,7 +20,7 @@ public class ZombieSpawner : IInitializable
     {
         repeatTimer.Duration = 2f;
         repeatTimer.OnCompleted += Spawn;
-       // repeatTimer.Play();
+        repeatTimer.Play();
     }
 
     private void Spawn()

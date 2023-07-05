@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Homeworks_5.Shooter.Scripts
 {
-    public class ShootController : ITickable, IInitializable, IDisposable
+    public class ShootController : IInitializable, IDisposable
     {
         [Inject] private HeroEntity heroEntity;
         [Inject] private BulletSpawner bulletSpawner;
@@ -26,14 +26,6 @@ namespace Homeworks_5.Shooter.Scripts
             var position = heroEntity.Get<IGetShootPosition>().GetShootPosition();
             var direction = heroEntity.Get<IGetForwardComponent>().Forward;
             bulletSpawner.Spawn(position,direction);
-        }
-
-        public void Tick()
-        {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                heroEntity.Get<IShootComponent>().TryShoot();
-            }
         }
     }
 }

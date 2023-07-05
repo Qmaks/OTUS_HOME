@@ -1,5 +1,6 @@
 ﻿using System;
 using Declarative;
+using Homeworks_6.Shooter.Scripts.Atomic.Mechanics;
 using Lessons.Gameplay;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -7,7 +8,7 @@ using UnityEngine;
 namespace Homeworks_5.Shooter.Scripts
 {
     [Serializable]
-    public sealed class WeaponSection
+    public sealed class ShootSection
     {
         [ShowInInspector]
         public AtomicEvent TryShoot = new ();
@@ -27,6 +28,9 @@ namespace Homeworks_5.Shooter.Scripts
         [SerializeField]
         public RepeatTimerMechanics restoreBulletTimer = new();
 
+        [SerializeField]
+        public NearestTargetSensor<ZombieEntity> nearestZombieSensor = new();
+        
         [SerializeField] public MonoBehaviour coroutineRunner;
         
         [Construct]

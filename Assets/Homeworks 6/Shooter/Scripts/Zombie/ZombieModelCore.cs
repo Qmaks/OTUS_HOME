@@ -26,7 +26,7 @@ namespace Homeworks_5.Shooter.Scripts.Zombie
         [Construct]
         public void Construct()
         {
-           // IsNearTarget.Construct(moveSection.moveTransform,target);
+            IsNearTarget.Construct(moveSection.transform,target);
             
             fixedUpdate.Do(deltaTime =>
             {

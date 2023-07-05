@@ -15,7 +15,24 @@ namespace Homeworks_5.Shooter.Scripts.Zombie
         
         [SerializeField] 
         public TimerMechanics delayDeathAnimation;
-        
+
+        public ParticleSystem bloodVFX;
+        public AudioSource audioSource;
+        public AudioClip deathSFX;
+
+        [Construct]
+        public void ConstructFX(ZombieModelCore core)
+        {
+            core.lifeSection.isDeath.OnChanged += (isDeath) =>
+            {
+                if (isDeath)
+                {
+                    bloodVFX.Play(true);
+                    audioSource.PlayOneShot(deathSFX);
+                }
+            };
+        }
+
         [Construct]
         public void ConstructTransitions(ZombieStates states)
         {

@@ -15,6 +15,28 @@ namespace Homeworks_5.Shooter.Scripts
         [SerializeField]
         public AtomicVariable<Transform> shootingPoint = new();
         
+        public AudioSource audioSource;
+        public AudioClip shootSFX;
+        public AudioClip hitSFX;
+
+        public ParticleSystem muzzleVFX;
+        
+        
+        [Construct]
+        public void ConstructFX(HeroModel_Core core)
+        {
+            core.shootSection.OnShooted += () =>
+            {
+                audioSource.PlayOneShot(shootSFX);
+                muzzleVFX.Play(true);
+            };
+
+            core.lifeSection.onTakeDamage += (value) =>
+            {
+                audioSource.PlayOneShot(hitSFX);
+            };
+        }
+        
         [Construct]
         public void ConstructTransitions(HeroStates states)
         {

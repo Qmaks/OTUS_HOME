@@ -59,7 +59,7 @@ MonoBehaviour:
       moveDirection:
         value: {x: 0, y: 0, z: 0}
       speed:
-        value: 5
+        value: 10
     look:
       lookTransform: {fileID: 5413306828226705938}
       lookDirection:

@@ -27,6 +27,7 @@ public class ZombieSpawner : IInitializable
     {
         var point = spawnPointsController.GetRandomSpawnPoint();
         var zombie = factory.Create();
+        
         zombie.Get<IPositionComponent>().Position = point.position;
         zombie.Get<ITargetComponent>().SetTarget(heroEntity);
         

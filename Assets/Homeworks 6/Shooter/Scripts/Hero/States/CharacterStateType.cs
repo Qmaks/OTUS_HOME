@@ -5,6 +5,6 @@ namespace Lessons.StateMachines.States
         Idle,
         Run,
         Dead,
-        Shoot
+        Attack
     }
 }

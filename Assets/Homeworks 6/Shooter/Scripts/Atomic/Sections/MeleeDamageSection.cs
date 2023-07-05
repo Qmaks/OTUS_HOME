@@ -10,9 +10,6 @@ namespace Homeworks_5.Shooter.Scripts.Zombie
     [Serializable]
     public class MeleeDamageSection
     {
-        [SerializeField] 
-        public MonoBehaviour coroutineRunner;
-        
         [FormerlySerializedAs("delay")] [SerializeField]
         public TimerMechanics attackTimer;
 
@@ -21,13 +18,13 @@ namespace Homeworks_5.Shooter.Scripts.Zombie
         public AtomicEvent OnAttack;
 
         [Construct]
-        public void Construct()
+        public void Construct(ZombieModelCore core)
         {
             OnAttack += () =>
             {
                 if (!attackTimer.IsPlaying)
                 {
-                    coroutineRunner.StartCoroutine(attackTimer.Play());
+                    core.coroutineRunner.StartCoroutine(attackTimer.Play());
                 }
             };
         }

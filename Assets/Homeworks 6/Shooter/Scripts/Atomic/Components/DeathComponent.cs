@@ -22,4 +22,17 @@ namespace Homeworks_5.Shooter.Scripts.Common
             };
         }
     }
+    
+    public class DeathTimerComponent : IDeathComponent
+    {
+        public event Action<Entity> OnDeath;
+        
+        public DeathTimerComponent(Entity entity,TimerMechanics deathTimer)
+        {
+            deathTimer.OnCompleted += () =>
+            {
+                OnDeath?.Invoke(entity);
+            };
+        }
+    }
 }

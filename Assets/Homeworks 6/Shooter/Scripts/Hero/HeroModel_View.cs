@@ -18,12 +18,7 @@ namespace Homeworks_5.Shooter.Scripts
         [Construct]
         public void ConstructStates()
         {
-            // this.animatorMachine.Construct(
-            //     (AnimatorStateType.Idle, null),
-            //     (AnimatorStateType.Run, null),
-            //     (AnimatorStateType.Dead, null),
-            //     (AnimatorStateType.Shoot, null)
-            // );
+            
         }
         
         [Construct]
@@ -38,7 +33,7 @@ namespace Homeworks_5.Shooter.Scripts
                 () => coreFSM.CurrentState == CharacterStateType.Run);
 
             this.animatorMachine.AddTransition(AnimatorStateType.Shoot,
-                () => coreFSM.CurrentState == CharacterStateType.Shoot);
+                () => coreFSM.CurrentState == CharacterStateType.Attack);
             
             this.animatorMachine.AddTransition(AnimatorStateType.Dead,
                 () => coreFSM.CurrentState == CharacterStateType.Dead);

@@ -14,7 +14,7 @@ namespace Lessons.Gameplay
     
         void IFixedUpdateListener.FixedUpdate(float deltaTime)
         {
-            this.update.Invoke(deltaTime);
+            this.update?.Invoke(deltaTime);
         }
     }
 }

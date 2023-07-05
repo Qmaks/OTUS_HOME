@@ -18,7 +18,8 @@ namespace Homeworks_5.Shooter.Scripts
         private Transform transform;
         private AtomicEvent tryShoot;
 
-        public void Construct(Transform transform,
+        public void Construct(
+            Transform transform,
             AtomicEvent tryShoot,
             NearestTargetSensor<ZombieEntity> nearestTargetSensor,
             RotateInDirectionMechanic rotateInDirectionMechanic)

@@ -53,7 +53,7 @@ namespace Homeworks_5.Shooter.Scripts
                 (CharacterStateType.Idle, idleState),
                 (CharacterStateType.Run, moveState),
                 (CharacterStateType.Dead, deadState),
-                (CharacterStateType.Shoot, shootState)
+                (CharacterStateType.Attack, shootState)
             );
         }
 
@@ -87,11 +87,11 @@ namespace Homeworks_5.Shooter.Scripts
                 //Если сенсором найдена цель начинаем стрельбу
                 if ((zombie!=null)&&(!life.isDeath.Value) && (stateMachine.CurrentState == CharacterStateType.Idle))
                 {
-                    stateMachine.SwitchState(CharacterStateType.Shoot);
+                    stateMachine.SwitchState(CharacterStateType.Attack);
                 }
                 
                 //Если цели закончились возвращаемся в idle
-                if ((zombie==null)&&(stateMachine.CurrentState == CharacterStateType.Shoot)&&(!life.isDeath.Value))
+                if ((zombie==null)&&(stateMachine.CurrentState == CharacterStateType.Attack)&&(!life.isDeath.Value))
                 {
                     stateMachine.SwitchState(CharacterStateType.Idle);
                 }

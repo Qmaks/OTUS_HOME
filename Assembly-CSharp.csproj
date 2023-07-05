@@ -228,6 +228,11 @@
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Mechanics\FixedUpdateMechanics.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\ProgressBar.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStatsWidget.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\ZombieStates.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\States\IdleState.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\States\AttackState.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\States\MoveState.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\States\DeathState.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\AnimatorControllers\AssaultRifle" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\AnimatorControllers\1H" />
@@ -452,6 +457,7 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Basic Motions\Animations\Social\Conversation" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Textures" />
+     <Folder Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\States" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias" />
      <Folder Include="Assets\Homework 2\Resources" />
      <Folder Include="Assets\Homework 2\Scripts\Common" />

@@ -5,7 +5,6 @@ using Homeworks_5.Shooter.Scripts.Component;
 using Homeworks_6.Shooter.Scripts.Zombie;
 using Lessons.Gameplay;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Homeworks_5.Shooter.Scripts.Zombie
 {
@@ -33,36 +32,10 @@ namespace Homeworks_5.Shooter.Scripts.Zombie
         {
             IsNearTarget.Construct(moveSection.transform,target);
             
-            // fixedUpdate.Do(deltaTime =>
-            // {
-            //     Run();
-            //     Attack();
-            // });
-            
-            SendDamage();
-        }
-
-        private void Run()
-        {
-            var targetPosition = target.Value.Get<IPositionComponent>().Position;
-            var myPosition = moveSection.transform.position;
-            moveSection.movementDirection.Value = (targetPosition - myPosition).normalized; 
-        }
-
-        private void SendDamage()
-        {
             damageSection.attackTimer.OnStartPlay += () =>
             {
                 target.Value.Get<ITakeDamageComponent>().ReceiveDamage(damageSection.damage.Value);
             };
-        }
-
-        private void Attack()
-        {
-            if ((IsNearTarget.value.Value) && (!damageSection.attackTimer.IsPlaying))
-            {
-                damageSection.OnAttack.Invoke();
-            }
         }
     }
 }

@@ -17,12 +17,6 @@ namespace Homeworks_5.Shooter.Scripts.Zombie
         public TimerMechanics delayDeathAnimation;
         
         [Construct]
-        public void Construct(ZombieModelCore core)
-        {
-           
-        }
-        
-        [Construct]
         public void ConstructTransitions(ZombieStates states)
         {
             var coreFSM = states.stateMachine;

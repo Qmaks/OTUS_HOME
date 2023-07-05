@@ -1,6 +1,5 @@
 ﻿using System;
 using Declarative;
-using Homeworks_5.Shooter.Scripts.Atomic;
 using Lessons.Gameplay;
 using UnityEngine;
 using UnityEngine.Serialization;

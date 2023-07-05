@@ -2,7 +2,6 @@
 using Declarative;
 using Homeworks_5.Shooter.Scripts.Atomic.Mechanics;
 using Lessons.Gameplay;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Homeworks_5.Shooter.Scripts

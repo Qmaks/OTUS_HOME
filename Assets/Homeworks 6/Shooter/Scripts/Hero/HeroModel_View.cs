@@ -16,12 +16,6 @@ namespace Homeworks_5.Shooter.Scripts
         public AtomicVariable<Transform> shootingPoint = new();
         
         [Construct]
-        public void ConstructStates()
-        {
-            
-        }
-        
-        [Construct]
         public void ConstructTransitions(HeroStates states)
         {
             var coreFSM = states.stateMachine;
@@ -38,7 +32,5 @@ namespace Homeworks_5.Shooter.Scripts
             this.animatorMachine.AddTransition(AnimatorStateType.Dead,
                 () => coreFSM.CurrentState == CharacterStateType.Dead);
         }
-
-
     }
 }

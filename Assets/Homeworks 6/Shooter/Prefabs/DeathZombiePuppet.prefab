@@ -1916,7 +1916,7 @@ GameObject:
   - component: {fileID: 1936405185842447496}
   - component: {fileID: 4357250285372758793}
   m_Layer: 11
-  m_Name: DeathPuppet
+  m_Name: DeathZombiePuppet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -22,6 +22,7 @@ namespace Lessons.StateMachines.States
 
         public void Exit()
         {
+            nearestTargetSensor.Active = false;
         }
     }
 }

@@ -13,7 +13,8 @@ public class ZombieEntity : Entity
    {
       Add(new TargetComponent(model.core.target));
       Add(new TakeDamageComponent(model.core.lifeSection.onTakeDamage));
-      Add(new DeathTimerComponent(this,model.view.delayDeathAnimation));
+      //Add(new DeathTimerComponent(this,model.view.delayDeathAnimation));
+      Add(new DeathComponent(this,model.core.lifeSection.isDeath));
       Add(new TransformComponent(transform));
    }
 }

@@ -36,17 +36,18 @@ namespace Homeworks_5.Shooter.Scripts
                 shootSection.nearestZombieSensor
                 );
 
+
             moveState.Construct(
                 moveSection.movementDirection,
-                moveSection.moveInDirectionEngine,
-                moveSection.rotateInDirectionEngine,
-                shootSection.nearestZombieSensor);
-            
+                moveSection.transform,
+                moveSection.movementSpeed,
+                moveSection.rotationSpeed
+            );
             shootState.Construct(
                 moveSection.transform,
                 root.core.shootSection.TryShoot,
                 root.core.shootSection.nearestZombieSensor,
-                moveSection.rotateInDirectionEngine
+                moveSection.rotationSpeed
                 );
             
             stateMachine.Construct(

@@ -1,34 +1,33 @@
-using System;
-using System.Collections;
+﻿using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace Lessons.Gameplay
 {
     [Serializable]
-    public sealed class TimerMechanics
+    public sealed class LoopTimer
     {
-        public AtomicEvent OnStartPlay { get; set; } = new();
         public AtomicEvent OnCompleted { get; set; } = new();
-        
         
         public bool IsPlaying { get; private set; }
         
         [field: SerializeField]
         public float Duration { get; set; }
 
-        public IEnumerator Play()
+        public async void Play()
         {
             if (IsPlaying)
             {
-                yield break;
+                return;
             }
-
-            OnStartPlay.Invoke();
+            
             IsPlaying = true;
-            yield return new WaitForSeconds(Duration);
-            IsPlaying = false;
-            OnCompleted?.Invoke();
+
+            while (true)
+            {
+                await UniTask.Delay(Mathf.RoundToInt(Duration * 1000));
+                OnCompleted?.Invoke();
+            }
         }
     }
 }

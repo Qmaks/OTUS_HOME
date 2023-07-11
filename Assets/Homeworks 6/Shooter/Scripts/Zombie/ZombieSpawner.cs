@@ -14,7 +14,7 @@ public class ZombieSpawner : IInitializable
     [Inject] private SpawnPointsController spawnPointsController;
     [Inject] private ZombieFactory factory;
 
-    private RepeatTimerMechanics repeatTimer = new();
+    private LoopTimer repeatTimer = new();
 
     public void Initialize()
     {

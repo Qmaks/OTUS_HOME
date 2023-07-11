@@ -27,7 +27,7 @@ namespace Homeworks_5.Shooter.Scripts.Common
     {
         public event Action<Entity> OnDeath;
         
-        public DeathTimerComponent(Entity entity,TimerMechanics deathTimer)
+        public DeathTimerComponent(Entity entity,Timer deathTimer)
         {
             deathTimer.OnCompleted += () =>
             {

@@ -41,11 +41,15 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\ETFXLoopScript.cs" />
+     <Compile Include="Assets\AssetPacks\Epic Toon FX\Scripts\ETFXPitchRandomizer.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\ZombieModelCore.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\GameController.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\LevelUpButton\LevelUpButton.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\States\IdleState.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\HeroModel.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Components\HealthComponent.cs" />
+     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\ETFXFireProjectile.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\Controllers\ShootController.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Common\CoroutineRunner.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Components\WeaponComponent.cs" />
@@ -67,8 +71,11 @@
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\UI\Presenter\HpViewPresenter.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Level\LevelBoundSceneLinks.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\ZombieSpawner.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Mechanics\RepeatTimerMechanics.cs" />
+     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\ETFXButtonScript.cs" />
+     <Compile Include="Assets\AssetPacks\Epic Toon FX\Scripts\ETFXLightFade.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Mechanics\LoopTimer.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\AnimatorStateMachine\AnimatorStateMachine.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\States\AttackState.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\States\MoveState.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zenject\Scene5Installer.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Bullet\Core\BulletModel_Core.cs" />
@@ -86,8 +93,10 @@
      <Compile Include="Assets\Homework 2\Scripts\Components\MoveComponent.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerProgress\PlayerProgressPresenter.cs" />
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts\IdleThrowTrick.cs" />
+     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\VFX Library\ParticleEffectsLibrary.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Actions\AtomicEvent.cs" />
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\Scripts\JumpScript.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\States\DeathState.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\BulletDestroyer.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\UI\View\FinishGameView.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\PlayerResources\ResourceType.cs" />
@@ -97,6 +106,7 @@
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Scripts\MeleeWarriorLeftHandIK.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\SaveLoader.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Bullets\Bullet.cs" />
+     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\ETFXMouseOrbit.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\Agents\EnemyMoveAgent.cs" />
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Throwing Animations Pack\Scripts\ThrowProp.cs" />
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowNova.cs" />
@@ -108,6 +118,7 @@
      <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyPositions.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitFactory.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Sections\LifeSection.cs" />
+     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\VFX Library\UICanvasManager.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Zenject\Scene4Installer.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Components\DeathComponent.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Sections\MeleeDamageSection.cs" />
@@ -115,11 +126,13 @@
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\Component\ShootComponent.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\StateMachines\CharacterStateType.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\States\ShootState.cs" />
+     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\ETFXTarget.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Mono\CollisionObservable.cs" />
+     <Compile Include="Assets\AssetPacks\Epic Toon FX\Scripts\ETFXRotation.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Components\LookDirectionComponent.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStats.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\HeroModel_Core.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Mechanics\TimerMechanics.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Mechanics\Timer.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Mechanics\NearestTargetSensor.cs" />
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Melee Warrior Animations\Scripts\MeleeWarriorShieldRotator.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Character\CharacterFireController.cs" />
@@ -171,6 +184,7 @@
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Components\MoveInDirectionComponent.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Units\UnitsObjectSaveLoader.cs" />
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\AddCastEffect.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\States\MoveState.cs" />
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Caster Mage Animations\Scripts\ThrowShockwave.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\PopupName.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Components\LifeTimeComponent.cs" />
@@ -193,8 +207,10 @@
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStatsPresenter.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\States\IdleState.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Enemy\EnemyShooter.cs" />
+     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\ETFXProjectileScript.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\SaveLoadSystem\GameRepository.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Hero\Controllers\MoveController.cs" />
+     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\ETFXSceneManager.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Bullet\BulletModel.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerInfo\PlayerInfoPresenter.cs" />
      <Compile Include="Assets\Homework 4\SaveLoad\Scripts\Resources\ResourceObject.cs" />
@@ -216,7 +232,9 @@
      <Compile Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\RetargetingExamples\Scripts\SoldierIKSMB.cs" />
      <Compile Include="Assets\Homework 3\Scripts\Model\TestRepository.cs" />
      <Compile Include="Assets\Homework 2\Scripts\Zenject\SceneInstaller.cs" />
+     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\VFX Library\PEButtonScript.cs" />
      <Compile Include="Assets\Homework 2\Scripts\GameManager\GameManager.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\ZombieStates.cs" />
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Components\TargetComponent.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\IPlayerStatsPresenter.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\PopupManager.cs" />
@@ -226,24 +244,7 @@
      <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Mechanics\FixedUpdateMechanics.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\ProgressBar.cs" />
      <Compile Include="Assets\Homework 3\Scripts\UI\Widgets\PlayerStats\PlayerStatsWidget.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\ZombieStates.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\States\IdleState.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\States\AttackState.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\States\MoveState.cs" />
-     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Zombie\States\DeathState.cs" />
-     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\VFX Library\ParticleEffectsLibrary.cs" />
-     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\ETFXLoopScript.cs" />
-     <Compile Include="Assets\AssetPacks\Epic Toon FX\Scripts\ETFXPitchRandomizer.cs" />
-     <Compile Include="Assets\AssetPacks\Epic Toon FX\Scripts\ETFXLightFade.cs" />
-     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\ETFXButtonScript.cs" />
-     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\ETFXFireProjectile.cs" />
-     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\ETFXMouseOrbit.cs" />
-     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\ETFXTarget.cs" />
-     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\VFX Library\PEButtonScript.cs" />
-     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\ETFXProjectileScript.cs" />
-     <Compile Include="Assets\AssetPacks\Epic Toon FX\Scripts\ETFXRotation.cs" />
-     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\ETFXSceneManager.cs" />
-     <Compile Include="Assets\AssetPacks\Epic Toon FX\Demo\Scripts\VFX Library\UICanvasManager.cs" />
+     <Compile Include="Assets\Homeworks 6\Shooter\Scripts\Atomic\Mono\DestroyWithDelay.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\AssetPacks\Epic Toon FX\Prefabs\Environment\Water\Other" />
      <Folder Include="Assets\AssetPacks\Kevin Iglesias\Soldier Animations\AnimatorControllers\AssaultRifle" />

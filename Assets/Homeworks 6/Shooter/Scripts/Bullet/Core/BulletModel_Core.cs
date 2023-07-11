@@ -24,7 +24,7 @@ namespace Homeworks_5.Shooter.Scripts.Bullet.Core
         public LookDirection look = new();
 
         [SerializeField] 
-        public TimerMechanics lifeTimer = new();
+        public Timer lifeTimer = new();
 
         [FormerlySerializedAs("life")]
         [Section]

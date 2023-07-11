@@ -1,10 +1,10 @@
 ﻿using System;
 using Declarative;
 using Homeworks_6.Shooter.Scripts.Zombie;
-using Lessons.Gameplay;
 using Lessons.StateMachines;
 using Lessons.StateMachines.States;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Homeworks_5.Shooter.Scripts.Zombie
 {
@@ -12,14 +12,11 @@ namespace Homeworks_5.Shooter.Scripts.Zombie
     public sealed class ZombieModelView
     {
         public AnimatorStateMachine<AnimatorStateType> animatorMachine;
+
+        public Transform transform;
+
+        public GameObject deathPuppet;
         
-        [SerializeField] 
-        public TimerMechanics delayDeathAnimation;
-
-        public ParticleSystem bloodVFX;
-        public AudioSource audioSource;
-        public AudioClip deathSFX;
-
         [Construct]
         public void ConstructFX(ZombieModelCore core)
         {
@@ -27,8 +24,7 @@ namespace Homeworks_5.Shooter.Scripts.Zombie
             {
                 if (isDeath)
                 {
-                    bloodVFX.Play(true);
-                    audioSource.PlayOneShot(deathSFX);
+                    Object.Instantiate(deathPuppet, transform.position, transform.rotation);
                 }
             };
         }

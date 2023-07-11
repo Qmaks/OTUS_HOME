@@ -1,6 +1,5 @@
 ﻿using System;
 using Homeworks_5.Shooter.Scripts.Atomic;
-using Homeworks_5.Shooter.Scripts.Atomic.Mechanics;
 using Homeworks_5.Shooter.Scripts.Component;
 using Lessons.Gameplay;
 using Lessons.StateMachines.States;
@@ -9,11 +8,11 @@ using UnityEngine;
 namespace Homeworks_6.Shooter.Scripts.Zombie.States
 {
     [Serializable]
-    public sealed class MoveState : IState
+    public sealed class MoveState : UpdateState
     {
         private MovementDirectionVariable _movementDirection;
-        private MoveInDirectionMechanic _moveInDirectionEngine;
-        private RotateInDirectionMechanic _rotateInDirectionEngine;
+        private AtomicVariable<float> _moveSpeed;
+        private AtomicVariable<float> _rotateSpeed;
         private AtomicVariable<Entity> _target;
         private Transform _transform;
         
@@ -23,40 +22,32 @@ namespace Homeworks_6.Shooter.Scripts.Zombie.States
             Transform transform,
             AtomicVariable<Entity> target,
             MovementDirectionVariable movementDirection,
-            MoveInDirectionMechanic moveInDirectionEngine,
-            RotateInDirectionMechanic rotateInDirectionEngine
+            AtomicVariable<float> moveSpeed,
+            AtomicVariable<float> rotateSpeed
             )
         {
             _transform = transform;
             _target = target;
             _movementDirection = movementDirection;
-            _moveInDirectionEngine = moveInDirectionEngine;
-            _rotateInDirectionEngine = rotateInDirectionEngine;
+            _moveSpeed = moveSpeed;
+            _rotateSpeed = rotateSpeed;
         }
         
-        void IState.Enter()
+        protected override void OnUpdate(float deltaTime)
         {
-            _movementDirection.OnChanged += SetDirection;
-            SetDirection(_movementDirection);
+            var targetPosition =_target.Value.Get<IPositionComponent>().Position;
+            _movementDirection.Value = (targetPosition - _transform.position).normalized;
             
-            lateUpdateMechanics.SetAction((deltaTime =>
+            _transform.position += _movementDirection.Value * (_moveSpeed.Value * deltaTime);
+            
+            if (_movementDirection.Value == Vector3.zero)
             {
-                var targetPosition =_target.Value.Get<IPositionComponent>().Position;
-                _movementDirection.Value = (targetPosition - _transform.position).normalized; 
-            } ));
-        }
-
-        void IState.Exit()
-        {
-            _movementDirection.OnChanged -= SetDirection;
-            lateUpdateMechanics.ClearAction();
-            SetDirection(Vector3.zero);
-        }
-
-        private void SetDirection(Vector3 direction)
-        {
-            _moveInDirectionEngine.SetDirection(direction);
-            _rotateInDirectionEngine.SetDirection(direction);
+                return;
+            }
+            
+            var currentRotation = _transform.rotation;
+            var targetRotation = Quaternion.LookRotation(_movementDirection.Value);
+            _transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, _rotateSpeed.Value * deltaTime);
         }
     }
 }

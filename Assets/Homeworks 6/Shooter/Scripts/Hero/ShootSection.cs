@@ -17,7 +17,7 @@ namespace Homeworks_5.Shooter.Scripts
         public AtomicEvent OnShooted = new ();
 
         [SerializeField]
-        public TimerMechanics shootCooldown = new();
+        public Timer shootCooldown = new();
 
         [SerializeField]
         public AtomicVariable<int> currentBullet = new();
@@ -26,7 +26,7 @@ namespace Homeworks_5.Shooter.Scripts
         public AtomicVariable<int> maxBullet = new();
 
         [SerializeField]
-        public RepeatTimerMechanics restoreBulletTimer = new();
+        public LoopTimer restoreBulletTimer = new();
 
         [SerializeField]
         public NearestTargetSensor<ZombieEntity> nearestZombieSensor = new();

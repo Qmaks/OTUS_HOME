@@ -10,7 +10,7 @@ namespace Homeworks_5.Shooter.Scripts.Zombie
     public class MeleeDamageSection
     {
         [FormerlySerializedAs("delay")] [SerializeField]
-        public TimerMechanics attackTimer;
+        public Timer attackTimer;
 
         public AtomicVariable<int> damage;
 

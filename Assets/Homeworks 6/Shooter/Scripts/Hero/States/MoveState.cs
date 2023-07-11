@@ -1,7 +1,4 @@
 ﻿using System;
-using Declarative;
-using Homeworks_5.Shooter.Scripts.Atomic.Mechanics;
-using Homeworks_6.Shooter.Scripts.Atomic.Mechanics;
 using Lessons.Gameplay;
 using Lessons.StateMachines.States;
 using UnityEngine;
@@ -9,41 +6,39 @@ using UnityEngine;
 namespace Homeworks_5.Shooter.Scripts
 {
     [Serializable]
-    public sealed class MoveState : IState
+    public sealed class MoveState : UpdateState
     {
         private MovementDirectionVariable _movementDirection;
-        private MoveInDirectionMechanic _moveInDirectionEngine;
-        private RotateInDirectionMechanic _rotateInDirectionEngine;
-        private NearestTargetSensor<ZombieEntity> _nearestZombieSensor;
+        private AtomicVariable<float> _moveSpeed;
+        private AtomicVariable<float> _rotateSpeed;
+        private Transform _transform;
 
-        public void Construct(MovementDirectionVariable movementDirection,
-            MoveInDirectionMechanic moveInDirectionEngine,
-            RotateInDirectionMechanic rotateInDirectionEngine,
-            NearestTargetSensor<ZombieEntity> nearestZombieSensor)
+        public void Construct(
+            MovementDirectionVariable movementDirection,
+            Transform transform,
+            AtomicVariable<float> moveSpeed,
+            AtomicVariable<float> rotateSpeed
+            )
         {
-            _nearestZombieSensor = nearestZombieSensor;
+            _transform = transform;
+            _rotateSpeed = rotateSpeed;
+            _moveSpeed = moveSpeed;
             _movementDirection = movementDirection;
-            _moveInDirectionEngine = moveInDirectionEngine;
-            _rotateInDirectionEngine = rotateInDirectionEngine;
-        }
-        
-        void IState.Enter()
-        {
-            _nearestZombieSensor.Active = false;
-            _movementDirection.OnChanged += SetDirection;
-            SetDirection(_movementDirection);
         }
 
-        void IState.Exit()
+        protected override void OnUpdate(float deltaTime)
         {
-            _movementDirection.OnChanged -= SetDirection;
-            SetDirection(Vector3.zero);
-        }
+            _transform.position += _movementDirection.Value * (_moveSpeed.Value * deltaTime);
+            
+            if (_movementDirection.Value == Vector3.zero)
+            {
+                return;
+            }
+            
+            var currentRotation = _transform.rotation;
+            var targetRotation = Quaternion.LookRotation(_movementDirection.Value);
+            _transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, _rotateSpeed.Value * deltaTime);
 
-        private void SetDirection(Vector3 direction)
-        {
-            _moveInDirectionEngine.SetDirection(direction);
-            _rotateInDirectionEngine.SetDirection(direction);
         }
     }
 }

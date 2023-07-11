@@ -5,33 +5,24 @@ using Lessons.StateMachines.States;
 namespace Homeworks_6.Shooter.Scripts.Zombie.States
 {
     [Serializable]
-    public class AttackState : IState
+    public class AttackState : UpdateState
     {
         private AtomicEvent _tryAttack;
         
-        private LateUpdateMechanics lateUpdateMechanics = new();
-        private TimerMechanics _attackTimer;
+        private Timer _attackTimer;
 
-        public void Construct(AtomicEvent tryAttack,TimerMechanics attackTimer)
+        public void Construct(AtomicEvent tryAttack,Timer attackTimer)
         {
             _attackTimer = attackTimer;
             _tryAttack = tryAttack;
         }
-
-        public void Enter()
+        
+        protected override void OnUpdate(float deltaTime)
         {
-            lateUpdateMechanics.SetAction((detaTime) =>
+            if (!_attackTimer.IsPlaying)
             {
-                if (!_attackTimer.IsPlaying)
-                {
-                    _tryAttack.Invoke();
-                }
-            });
-        }
-
-        public void Exit()
-        {
-            lateUpdateMechanics.ClearAction();
+                _tryAttack.Invoke();
+            }
         }
     }
 }

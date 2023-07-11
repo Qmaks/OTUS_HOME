@@ -35,18 +35,13 @@ namespace Homeworks_6.Shooter.Scripts.Zombie
                 moveSection.transform,
                 root.core.target,
                 moveSection.movementDirection,
-                moveSection.moveInDirectionEngine,
-                moveSection.rotateInDirectionEngine
+                moveSection.movementSpeed,
+                moveSection.rotationSpeed
                 );
             
             attackState.Construct(
                 root.core.damageSection.OnAttack,
                 root.core.damageSection.attackTimer
-                );
-            
-            deathState.Construct(
-                root.core.coroutineRunner,
-                root.view.delayDeathAnimation
                 );
             
             stateMachine.Construct(
